@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+
+    <link href="info.css" rel="stylesheet" type="text/css" />
+
+    <style>
+      
+
+
+      .sparkle {
+        position: absolute;
+        pointer-events: none;
+        background: radial-gradient(circle, #fff, transparent);
+        filter: drop-shadow(0 0 10px #69c1ff);
+        animation: sparkle 1.5s linear infinite;
+      }
+      
+      @keyframes sparkle {
+        0% { transform: scale(0) rotate(0deg); opacity: 0; }
+        50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
+        100% { transform: scale(0) rotate(360deg); opacity: 0; }
+      }
+      </style>
+</head>
+<body>
+    /* From Uiverse.io by Subaashbala */ 
+<div class="loader">
+  <div class="modelViewPort">
+    <div class="eva">
+      <div class="head">
+        <div class="eyeChamber">
+          <div class="eye"></div>
+          <div class="eye"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="hand"></div>
+        <div class="hand"></div>
+        <div class="scannerThing"></div>
+        <div class="scannerOrigin"></div>
+      </div>
+    </div>
+  </div>
+</div>
+/* From Uiverse.io by Spacious74 */ 
+<div class="bgblue">
+  <div class="card0">Welcome to UNI✤M's personal website! . I’m MAHA a beginner web 
+    developer , graphic designer and writer somtimes, etc. This site is a space where I share my journey, showcase my work, and connect with like-minded individuals.
+
+  </div>
+</div>
+<div class="btn-shine">UNI✤M</div>
+
+<div class="container">
+  <div class="card1"></div>
+  <div class="card2"></div>
+  <div class="card3">
+
+    My personal website is an online space that reflects who I am, my values, and the work I do. It started as a way to bring all the aspects of my professional and personal life into one place—whether it's showcasing my portfolio, sharing my experiences, or offering services. I wanted a platform where I could control my narrative, share my story, and present my skills without the limitations of social media or other platforms. Over time, it’s become more than just a professional tool—it’s a space for self-expression, a place to share ideas, and a way to connect with others who might be interested in what I do. This website is a work in progress, much like I am, and it grows and evolves along with my personal and professional journey.
+  </div>
+</div>
+
+<script>
+  // Floating hearts animation
+  function createEnhancedHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '♥';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    heart.style.transform = `rotateX(${Math.random() * 360}deg) rotateY(${Math.random() * 360}deg)`;
+    document.querySelector('.floating-hearts').appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+  }
+  
+  setInterval(createEnhancedHeart, 300);
+  
+  // Enhanced sparkle effect
+  function createEnhancedSparkle(e) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = e.pageX + 'px';
+    sparkle.style.top = e.pageY + 'px';
+    sparkle.style.width = Math.random() * 15 + 5 + 'px';
+    sparkle.style.height = sparkle.style.width;
+    sparkle.style.transform = `rotate(${Math.random() * 360}deg) translateZ(${Math.random() * 50}px)`;
+    document.body.appendChild(sparkle);
+    
+    setTimeout(() => sparkle.remove(), 1500);
+  }
+  
+  document.addEventListener('mousemove', (e) => {
+    if(Math.random() > 0.8) { // Only create sparkles 20% of the time
+        createEnhancedSparkle(e);
+    }
+  });
+  
+  
+  </script>
+
+</body>
+</html>

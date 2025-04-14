@@ -1,0 +1,1557 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+        <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+  
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>coffee</title>
+		<meta name="description" content="Fullscreen Layout with Page Transitions" />
+		<meta name="keywords" content="fullscreen layout, boxes, responsive, page transitions, css transitions, jquery, portfolio, template" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="https://tympanus.net/Development/favicon.ico">
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, html { font-size: 100%; padding: 0; margin: 0; height: 100%;}
+
+#codrops-ad-wrapper {
+	top: auto !important;
+	bottom: 10px;
+}
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    color: #f2ede3;
+    background: #333;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.bl-main a {
+	color: #f0f0f0;
+	text-decoration: none;
+	font-weight: 700;
+	letter-spacing: 2px;
+	padding: 0 5px;
+	text-transform: uppercase;
+	font-size: 80%;
+}
+
+.bl-main a:hover {
+	color: #fff;
+}
+
+.container { height: 100%; }
+
+.bl-main {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.bl-main > section {
+	position: absolute;
+	width: 50%;
+	height: 50%;
+}
+
+.bl-main > section:first-child {
+	top: 0;
+	left: 0;
+	background: #653b1f;
+}
+
+.bl-main > section:nth-child(2) {
+	top: 0;
+	left: 50%;
+	background: #9d5c30;
+}
+
+.bl-main > section:nth-child(3) {
+	top: 50%;
+	left: 0;
+	background: #a5704d;
+}
+
+.bl-main > section:nth-child(4) {
+	top: 50%;
+	left: 50%;
+	background:#daa887;
+}
+
+.bl-box {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	opacity: 1;
+	/* Centering with flexbox */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+}
+
+.bl-box h2 {
+	text-align: center;
+	margin: 0;
+	padding: 20px;
+	width: 100%;
+	font-size: 1.8em;
+	letter-spacing: 2px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.bl-icon {
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+    color: #ffeece;
+}
+
+
+.bl-icon:hover{
+    text-shadow: 1.7px 1.7px rgb(0, 0, 0);
+    
+}
+
+.bl-icon:before {
+	display: block;
+	font-size: 2em;
+	margin-bottom: 10px;
+}
+
+.bl-icon-about:before {
+	content: "\e000";
+}
+
+.bl-icon-works:before {
+	content: "\e001";
+}
+
+.bl-icon-blog:before {
+	content: "\e002";
+}
+
+.bl-icon-contact:before {
+	content: "\e003";
+}
+
+.bl-main > section .bl-icon-close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	z-index: 100;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.bl-icon-close:before {
+	content: "\e005";
+}
+
+.bl-content, 
+div.bl-panel-items > div > div {
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 60px;
+	left: 30px;
+	right: 30px;
+	bottom: 30px;
+	padding: 0 20px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+/* Custom content */
+
+.bl-content p {
+	margin: 0 auto;
+	padding-bottom: 15px;
+	font-size: 1.7em;
+	line-height: 1.8;
+}
+
+.bl-content h2 {
+	font-size: 3em;
+	font-weight: 300;
+	margin: 0 0 20px 0;
+}
+
+.bl-content article {
+	padding: 20px 40px 20px 0px;
+}
+
+.bl-content article h3 {
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin: 0 0 10px 0;
+	padding-top: 20px;
+	font-size: 1.4em;
+}
+
+.bl-content article a {
+	color: rgba(0,0,0,0.2);
+}
+
+.bl-content > ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+} 
+
+.bl-content > ul li {
+	display: inline-block;
+	width: 20%;
+	margin: 1%;
+}
+
+.bl-content > ul li a {
+	display: block;
+	padding: 0;
+	border: 8px solid rgba(0,0,0,0.1);
+}
+
+.bl-content > ul li a img {
+	display: block;
+	max-width: 100%;
+}
+
+/* Panel Items */
+
+div.bl-panel-items,
+div.bl-panel-items > div {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+
+div.bl-panel-items > div > div {
+	width: 60%;
+	margin: 0 auto;
+	opacity: 1;
+	bottom: 90px;
+	top: 90px;
+	pointer-events: auto;
+}
+
+div.bl-panel-items > div > div h3 {
+	font-size: 2.4em;
+	font-weight: 300;
+	margin: 0 0 20px 0;
+}
+
+div.bl-panel-items > div > div p {
+	font-size: 1.3em;
+}
+
+div.bl-panel-items > div > div img {
+	float: left;
+	margin: 0 20px 20px 0;
+	max-width: 100%;
+}
+
+div.bl-panel-items {
+	top: 100%;
+	z-index: 9999;
+}
+
+div.bl-panel-items > div {
+	background:  #9a6a4b;
+	z-index: 0;
+	opacity: 0;
+	-webkit-transform: translateY(0);
+	-webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0s linear 0.5s;
+	-moz-transform: translateY(0);
+	-moz-transition: -moz-transform 0.5s ease-in-out, opacity 0s linear 0.5s;
+	transform: translateY(0);
+	transition: transform 0.5s ease-in-out, opacity 0s linear 0.5s;
+	-ms-transform: translateY(0);
+}
+
+div.bl-panel-items nav {
+	position: absolute;
+	z-index: 9999;
+	width: 216px;
+	left: 50%;
+	top: 0px;
+	margin-left: -108px;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s ease-in-out 0.5s;
+	-moz-transition: opacity 0.2s ease-in-out 0.5s;
+	transition: opacity 0.2s ease-in-out 0.5s;
+}
+
+div.bl-panel-items.bl-panel-items-show nav span {
+	float: left;
+	margin: 5px;
+}
+
+div.bl-panel-items nav span.bl-next-work {
+	font-weight: 700;
+	letter-spacing: 2px;
+	display: block;
+	text-transform: uppercase;
+	line-height: 2em;
+	cursor: pointer;
+	margin-right: 2em;
+}
+
+div.bl-panel-items.bl-panel-items-show nav {
+	opacity: 1;
+	top: -70px;
+}
+
+div.bl-panel-items > div.bl-show-work {
+	z-index: 1000;
+	opacity: 1;
+	-webkit-transform: translateY(-100%);
+	-webkit-transition: -webkit-transform 0.5s ease-in-out;
+	-moz-transform: translateY(-100%);
+	-moz-transition: -moz-transform 0.5s ease-in-out;
+	transform: translateY(-100%);
+	transition: transform 0.5s ease-in-out;
+	-ms-transform: translateY(-100%);
+}
+
+div.bl-panel-items > div.bl-hide-current-work {
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+	-webkit-transform: translateY(-100%) scale(0.5);
+	-moz-transition: -moz-transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+	-moz-transform: translateY(-100%) scale(0.5);
+	transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+	transform: translateY(-100%) scale(0.5);
+	-ms-transform: translateY(-100%) scale(0.5);
+	z-index: 0;
+}
+
+/* Transition classes and properties */
+/* Separated for a better overview and control */
+
+.bl-main > section {
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.bl-main > section.bl-expand {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.bl-main > section.bl-expand-top {
+	z-index: 100;
+}
+
+.bl-main > section:first-child.bl-expand {
+	background: #653b1f;
+}
+.bl-main > section:nth-child(2).bl-expand {
+	background: #9d5c30;
+}
+.bl-main > section:nth-child(3).bl-expand {
+	background: #a5704d;
+}
+.bl-main > section:nth-child(4).bl-expand {
+	background:#daa887;
+}
+
+.bl-main.bl-expand-item > section:not(.bl-expand),
+.bl-main.bl-expand-item > section.bl-scale-down {
+	-webkit-transform: scale(0.5);
+	-moz-transform: scale(0.5);
+	-ms-transform: scale(0.5);
+	transform: scale(0.5);
+	opacity: 0;
+}
+
+.bl-box {
+	-webkit-transition: opacity 0.2s linear 0.5s;
+	-moz-transition: opacity 0.2s linear 0.5s;
+	transition: opacity 0.2s linear 0.5s;
+}
+
+section.bl-expand .bl-box {
+	opacity: 0;
+	-webkit-transition: opacity 0s linear;
+	-moz-transition: opacity 0s linear;
+	transition: opacity 0s linear;
+}
+
+.bl-box h2 {
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.no-touch section:not(.bl-expand) .bl-box:hover h2 {
+	-webkit-transform: translateY(-15px);
+	-moz-transform: translateY(-15px);
+	-ms-transform: translateY(-15px);
+	transform: translateY(-15px);
+}
+
+.bl-content,
+.bl-icon-close {
+	-webkit-transition: opacity 0.1s linear 0s;
+	-moz-transition: opacity 0.1s linear 0s;
+	transition: opacity 0.1s linear 0s;
+}
+
+section.bl-expand .bl-content,
+section.bl-expand .bl-icon-close {
+	pointer-events: auto;
+	opacity: 1;
+	-webkit-transition: opacity 0.3s linear 0.5s;
+	-moz-transition: opacity 0.3s linear 0.5s;
+	transition: opacity 0.3s linear 0.5s;
+}
+
+@media screen and (max-width: 46.5em) {
+	.bl-content,
+	.bl-box {
+		font-size: 75%;
+	}
+
+	.bl-expand .bl-box {
+		height: 130px;
+	}
+
+	.bl-content > ul li {
+		width: 40%;
+	}
+}
+.bl-iconc{
+    
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+    position: relative;
+    bottom: 2em;
+    text-shadow: 1.8px 1.8px rgb(30, 18, 16);
+}
+
+.bl-iconv{
+    
+    text-shadow: 1.8px 1.8px rgb(30, 18, 16);
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+    position: relative;
+    bottom: 2em;
+}
+
+.bl-iconr{
+    
+    text-shadow: 1.8px 1.8px rgb(30, 18, 16);
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+    position: relative;
+    bottom: 2em;
+}
+
+.bl-icong{
+    
+    text-shadow: 1.8px 1.8px rgb(30, 18, 16);
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+    position: relative;
+    bottom: 2em;
+}
+
+.imgv{
+    position: relative;
+    top: 2em;
+}
+
+.imgc{
+    position: relative;
+    top: 2em;
+}
+
+.imgr{
+    position: relative;
+    top: 2em;
+}
+
+.imgg{
+    position: relative;
+    top: 2em;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    box-sizing: border-box;
+}
+@media screen and (max-height: 500px) { body > * { scale: 0.8 };}
+@media screen and (max-height: 430px) { 
+    body > * { scale: 0.7 } 
+    .options { translate: 259px 2px !important;}
+}
+/*Andev Web*/
+.options {
+    position: relative;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background: rgba(0,0,0, 0.04);
+    padding: 12px;
+}
+.options > div {
+    transition: all 0.1s ease-in-out;
+}
+.options > div:hover {
+    background: rgba(255,255,255, 1);
+    cursor: pointer;
+    font-size: 22px;
+    box-shadow: 
+    0 0 2px 0px rgba(0,0,0,0.2),
+    0 0 3px 2px rgba(255, 255, 255, 0.1),
+    0 0 3px 0 rgba(0,0,0, 0.1);
+    color: #462814be;
+    
+}
+.options:hover > * {
+    animation-play-state: paused;
+}
+
+.options {
+    background: none;
+    height: fit-content;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0%;
+    margin: auto;
+    translate: 259px 12px;
+    transform-origin: -157px 107%;
+    rotate: -100deg;
+}
+@keyframes rotateC {
+    0% {rotate: 0deg;}
+    100% {rotate: 360deg;}
+}
+.options > div {
+    --_speed: 4;
+    color: #4628148e;
+    position: absolute;
+    border-radius: 4px;
+    background-color: rgba(255,255,255, 0.2);
+    transform-origin: -145px 50%;
+    padding: 4px 12px 1px 22px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    animation: rotateC calc(var(--_speed) * 36s) linear infinite;
+}
+
+.options > div:nth-child(1) {  animation-delay:  calc(var(--_speed) * -1s); }
+.options > div:nth-child(2) {  animation-delay: calc(var(--_speed) *  -2s); }
+.options > div:nth-child(3) {  animation-delay: calc(var(--_speed) *  -3s); }
+.options > div:nth-child(4) {  animation-delay: calc(var(--_speed) *  -4s); }
+.options > div:nth-child(5) {  animation-delay: calc(var(--_speed) *  -5s); }
+.options > div:nth-child(6) {  animation-delay: calc(var(--_speed) *  -6s); }
+.options > div:nth-child(7) {  animation-delay: calc(var(--_speed) *  -7s); }
+.options > div:nth-child(8) {  animation-delay: calc(var(--_speed) *  -8s); }
+.options > div:nth-child(9) {  animation-delay: calc(var(--_speed) *  -9s); }
+.options > div:nth-child(10) { animation-delay: calc(var(--_speed) * -10s); }
+.options > div:nth-child(11) { animation-delay: calc(var(--_speed) * -11s); }
+.options > div:nth-child(12) { animation-delay: calc(var(--_speed) * -12s); }
+.options > div:nth-child(13) { animation-delay: calc(var(--_speed) * -13s); }
+.options > div:nth-child(14) { animation-delay: calc(var(--_speed) * -14s); }
+.options > div:nth-child(15) { animation-delay: calc(var(--_speed) * -15s); }
+.options > div:nth-child(16) { animation-delay: calc(var(--_speed) * -16s); }
+.options > div:nth-child(17) { animation-delay: calc(var(--_speed) * -17s); }
+.options > div:nth-child(18) { animation-delay: calc(var(--_speed) * -18s); }
+.options > div:nth-child(19) { animation-delay: calc(var(--_speed) * -19s); }
+.options > div:nth-child(20) { animation-delay: calc(var(--_speed) * -20s); }
+.options > div:nth-child(21) { animation-delay: calc(var(--_speed) * -21s); }
+.options > div:nth-child(22) { animation-delay: calc(var(--_speed) * -22s); }
+.options > div:nth-child(23) { animation-delay: calc(var(--_speed) * -23s); }
+.options > div:nth-child(24) { animation-delay: calc(var(--_speed) * -24s); }
+.options > div:nth-child(25) { animation-delay: calc(var(--_speed) * -25s); }
+.options > div:nth-child(26) { animation-delay: calc(var(--_speed) * -26s); }
+.options > div:nth-child(27) { animation-delay: calc(var(--_speed) * -27s); }
+.options > div:nth-child(28) { animation-delay: calc(var(--_speed) * -28s); }
+.options > div:nth-child(29) { animation-delay: calc(var(--_speed) * -29s); }
+.options > div:nth-child(30) { animation-delay: calc(var(--_speed) * -30s); }
+.options > div:nth-child(31) { animation-delay: calc(var(--_speed) * -31s); }
+.options > div:nth-child(32) { animation-delay: calc(var(--_speed) * -32s); }
+.options > div:nth-child(33) { animation-delay: calc(var(--_speed) * -33s); }
+.options > div:nth-child(34) { animation-delay: calc(var(--_speed) * -34s); }
+.options > div:nth-child(35) { animation-delay: calc(var(--_speed) * -35s); }
+
+.wrapper {
+    left: 35rem;
+    top: 6rem;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #9b8c83;
+    background: 
+    repeating-linear-gradient( 45deg, #9c7154, #ffdfca 8px, #fff0 8px, #fff0 25px ), 
+    repeating-linear-gradient( -45deg, #7a5943, #ffcaa6 8px, #fff0 8px, #fff0 25px );
+    background-color: #533723;
+    box-shadow: 
+    0 0 1px 1px #7a665a,
+    0 0 4px 2px #9b8c83,
+    inset 0 -630px 20px -500px #c59473,
+    inset 0 -680px 40px -500px #9c7154, 
+    inset 0 -700px 0 -500px #775843;
+    
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none;
+}
+.shadow {
+    position: absolute;
+    top: 69.7%;
+    left: 12%;
+    width: 55%;
+    height: 22px;
+    border-radius: 50%;
+    box-shadow: 
+    inset 0 0 0 100px rgba(0,0,0, 0.05);
+    background:
+    repeating-linear-gradient( -45deg, #0002, #0002 1px, #0000 1px, #0000 3px),
+    repeating-linear-gradient( 45deg, #0002, #0002 1px, #0000 1px, #0000 3px );
+} 
+.title {
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom:7%;
+    margin: auto;
+    display: flex;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    
+    
+    font-size: 20px;
+    text-shadow: 
+    0 0 3px rgba(255,255,255, 0.5), 
+    0 0px 1px rgba(0,0,0, 0.7);
+}
+.cup {
+    width: 160px;
+    height: 162px;
+    position: relative;
+}
+.contents {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background: rgba(247, 247, 247, 0.9);
+    clip-path: path('m 0 0 q 4.59 145.8 34.425 155.52 c 29.835 8.1 68.85 8.1 96.39 0 q 29.835 -9.72 29.835 -155.52 C 143 11 16 13 0 0 Z');
+}
+.contents::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    box-shadow: 
+    inset -18px 0px 4px -10px rgba(255,255,255, 0.7),
+    inset 42px -22px 12px -10px rgba(0,0,0, 0.03),
+    inset 0 -22px 12px -10px rgba(0,0,0, 0.2),
+    inset 20px 0 10px -10px rgba(0,0,0, 0.2);
+}
+.cup::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: -10px;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(63deg, rgba(253, 253, 253, 0.7) 9%, rgba(238, 238, 238, 0.7) 100%);
+    border-radius: 50%;
+    box-shadow: 
+    0 1px 2px 0px rgba(0,0,0, 0.05),
+    inset 0 0 1px 2px rgba(0,0,0, 0.05);
+}
+.cup::after {
+    content: '';
+    background: #fff;
+    width: 0%;
+    height: 0%;
+    scale: 1.15 0.7;
+    transform-origin: 0% 0%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+}
+
+.contents :is(.foam, .cream, .steamed-milk, .milk, .chocolate, .sugar, .whiskey, .water, .gelato, .espresso, .coffee) {
+    width: 100%;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50% / 20%;
+    font-size: 12px;
+    transition: all 1s ease-in-out;
+    opacity: 0.94;
+    position: relative;
+    margin-top: 0;
+    padding-top: 0;
+    color: rgba(0,0,0, 0);
+    margin: 0 auto;
+}
+.contents :is(.foam, .cream, .steamed-milk, .milk, .chocolate, .sugar, .whiskey, .water, .espresso, .coffee)::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10%;
+    transition: all 1s ease-in-out;
+    opacity: 0.1;
+    background: white;
+    z-index: inherit; 
+}
+.contents :is(.foam, .cream, .steamed-milk, .milk)::before {
+    background: rgb(141, 141, 141);
+}
+
+.contents .foam { background: #ffffff; z-index: 12;}
+.contents .cream { background: #fffbe7; z-index: 11;}
+.contents .steamed-milk { background: #fffcf8; z-index: 10;}
+.contents .milk { background: #f8f2e8; z-index: 9;}
+.contents .chocolate { background: #47260a; z-index: 8;}
+.contents .sugar { background: #ffffff; z-index: 7;}
+.contents .whiskey {background: rgba(207, 129, 39, 0.8); color: #fff; z-index: 6;}
+.contents .water { background: #e5f7ff; z-index: 5;}
+.contents .coffee { background: #5a341a; z-index: 4;}
+.contents .gelato { background: #fcf9ea; z-index: 4;}
+.contents .espresso { background: #462814; z-index: 3;}
+.contents .espresso span { display: none;}
+
+
+/* Black Coffee */
+.black .coffee {
+    height: 90%;
+    border-radius: 50% / 10%;
+    padding-top: 0px;
+
+    color: rgba(255,255,255, 1);
+}
+.black .coffee::before {
+    opacity: 0.1;
+    background: white;
+    top: 0%;
+}
+
+/* Latte */
+.latte .espresso {
+    color: rgba(255,255,255, 1);
+    height: 30%;
+    padding-top: 12px;
+    margin-top: -20px;
+}
+.latte .steamed-milk {
+    color: rgba(0,0,0, 1);
+    height: 60%;
+    margin-top: -20px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.latte .foam {
+    color: rgba(0,0,0, 1);
+    height: 24%;
+    padding-top: 22px;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.latte .foam::before {
+    background: #faf8f5;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+
+
+/* Flat White */
+.flat-white .espresso {
+    color: rgba(255,255,255, 1);
+    height: 40%;
+    margin-top: -21px;
+    padding-top: 20px;
+}
+.flat-white .espresso::before {
+    background: none;
+}
+.flat-white .steamed-milk {
+    color: rgba(0,0,0, 1);
+    height: 40%;
+    margin-top: -20px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.flat-white .steamed-milk::before {
+    background: #faf8f5;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+
+/* Cappuccino */
+.cappuccino .espresso {
+    color: rgba(255,255,255, 1);
+    height: 30%;
+    margin-top: -20px;
+    padding-top: 20px;
+}
+.cappuccino .espresso::before {
+    top: -33%;
+}
+.cappuccino .steamed-milk {
+    color: rgba(0,0,0, 1);
+    height: 30%;
+    margin-top: -20px;
+    padding-top: 20px;
+}
+.cappuccino .foam {
+    color: rgba(0,0,0, 1);
+    height: 40%;
+    padding-top: 20px;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.cappuccino .foam::before {
+    background: #faf8f5;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+
+/* Americano */
+.americano .water {
+    color: rgba(0,0,0, 1);
+    height: 60%;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.americano .water::before{
+    background: #eff9fd;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+    top: 0;
+}
+.americano .espresso {
+    color: rgba(255,255,255, 1);
+    height: 30%;
+    margin-top: -20px;
+    padding-top: 20px;
+}
+
+/* Espresso */
+.cup.espresso .espresso {
+    color: rgba(255,255,255, 1);
+    height: 30%;
+    margin-top: -20px;
+    padding-top: 20px;
+}
+.cup.espresso .espresso::before{
+    background: #9e4a12;
+    opacity: 0.4;
+}
+
+/* Doppio */
+.doppio .espresso {
+    color: rgba(255,255,255, 1);
+    height: 40%;
+    padding-top: 10px;
+}
+.doppio .espresso::before{
+    background: #9e4a12;
+    opacity: 0.4;
+}
+.doppio .espresso span {
+    display: contents;
+}
+
+/* Cortado */
+.cortado .steamed-milk {
+    color: rgba(0,0,0, 1);
+    height: 30%;
+    margin-top: -20px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.cortado .steamed-milk::before {
+    background: #faf8f5;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+.cortado .espresso {
+    color: rgba(255,255,255, 1);
+    height: 30%;
+    margin-top: -20px;
+    padding-top: 20px;
+}
+
+/* Macchiato */
+.macchiato .foam::before {
+    background: #faf8f5;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+.macchiato .foam {
+    color: rgba(0,0,0, 1);
+    height: 30%;
+    margin-top: -20px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.macchiato .espresso {
+    color: rgba(255,255,255, 1);
+    height: 30%;
+    margin-top: -20px;
+    padding-top: 20px;
+}
+
+/* Mocha */
+.mocha .steamed-milk {
+    color: rgba(0,0,0, 1);
+    height: 40%;
+    margin-top: -20px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.mocha .steamed-milk::before {
+    background: #faf8f5;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+.mocha .chocolate {
+    color: rgba(255,255,255, 1);
+    height: 25%;
+    margin-top: -20px;
+    padding-top: 20px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+}
+.mocha .espresso {
+    color: rgba(255,255,255, 1);
+    height: 40%;
+    margin-top: -21px;
+    padding-top: 20px;
+}
+.mocha .espresso::before {
+    background: none;
+}
+
+/* Affogato */
+.affogato .gelato {
+    opacity: 1;
+    color: rgba(0,0,0, 1);
+    height: 30%;
+    padding-top: 10px;
+    width: 60%;
+    border-radius: 100% 100% 50% 50%;
+    border: 1px dashed rgba(75,75,75, 0.5);
+    border-bottom: none;
+}
+.affogato .espresso {
+    margin-top: -16px;
+    color: rgba(255,255,255, 1);
+    height: 30%;
+    padding-top: 10px;
+}
+.affogato .espresso::before{
+    background: #9e4a12;
+    opacity: 0.4;
+}
+
+/* Con Panna */
+.con-panna .cream {
+    color: rgba(0,0,0, 1);
+    height: 24%;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.con-panna .cream::before {
+    background: #fcf9ea;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+.con-panna .espresso {
+    margin-top: -16px;
+    color: rgba(255,255,255, 1);
+    height: 40%;
+    padding-top: 10px;
+}
+.con-panna .espresso::before {
+    opacity: 0;
+}
+
+/* Cafe Au Lait */
+.cafe-au-lait .steamed-milk {
+    color: rgba(0,0,0, 1);
+    height: 50%;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.cafe-au-lait .steamed-milk::before {
+    background: #faf8f5;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+.cafe-au-lait .coffee {
+    margin-top: -16px;
+    color: rgba(255,255,255, 1);
+    height: 50%;
+    padding-top: 10px;
+}
+
+/* Irish */
+.irish .cream {
+    color: rgba(0,0,0, 1);
+    height: 24%;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(75, 75, 75, 0.3);
+}
+.irish .cream::before {
+    background: #fcf9ea;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+.irish .sugar {
+    color: rgba(0,0,0, 1);
+    height: 22%;
+    margin-top: -18px;
+    padding-top: 20px; 
+}
+.irish .sugar::before {
+    background: #fcf9ea;
+    border-bottom: 1px dashed rgba(75, 75, 75, 0.5);
+    opacity: 1;
+}
+.irish .whiskey {
+    color: rgba(255,255,255, 1);
+    height: 30%;
+    margin-top: -18px;
+    padding-top: 10px;
+}
+.irish .coffee {
+    margin-top: -18px;
+    color: rgba(255,255,255, 1);
+    height: 40%;
+    padding-top: 10px;
+}
+.irish .coffee::before {
+    opacity: 0;
+}                                           
+.type{
+    font-family: "Bungee Inline", cursive;
+    color: #e1c2a7;
+}
+
+                                         
+.type1{
+    font-family: "Bungee Inline", cursive;
+    color: #e7e7e7;
+}
+
+.bic{
+	border-radius: 50%;
+	box-shadow:2px 2px 2px 2px rgba(42, 24, 16, 0.53);
+	cursor: pointer;
+	
+}
+.vidv60{
+	position: relative;
+	left: 26em;
+	border-radius: 50%;
+}
+.s{
+	border-radius: 20px;
+}
+        </style>
+	</head>
+	<body>
+		<div class="container">	
+			<div id="bl-main" class="bl-main">
+				<section>
+					<div class="bl-box" >
+                        <img src="coffee.png" height="120" width="120" class="imgc">
+						<h2 class="bl-iconc bl-icon-about2 type1">COFFEE</h2>
+					</div>
+					<div class="bl-content">
+						<h2 class="type">Types Of Coffee Drinks</h2>
+                        
+  <div class="options">
+    <div>Black</div>
+    <div>Flat White</div>
+    <div>Latte</div>
+    <div>Cappuccino</div>
+    <div>Americano</div>
+    <div>Espresso</div>
+    <div>Doppio</div>
+    <div>Cortado</div>
+    <div>Macchiato</div>
+    <div>Mocha</div>
+    <div>Affogato</div>
+    <div>Con Panna</div>
+    <div>Irish</div>
+    <div>Cafe Au Lait</div>
+    
+    <!-- vv repeats vv -->
+    <div>Black</div>
+    <div>Flat White</div>
+    <div>Latte</div>
+    <div>Cappuccino</div>
+    <div>Americano</div>
+    <div>Espresso</div>
+    <div>Doppio</div>
+    <div>Cortado</div>
+    <div>Macchiato</div>
+    <div>Mocha</div>
+    <div>Affogato</div>
+    <div>Con Panna</div>
+    <div>Irish</div>
+    <div>Cafe Au Lait</div>
+    <div>Black</div>
+    <div>Flat White</div>
+    <div>Latte</div>
+    <div>Cappuccino</div>
+    <div>Americano</div>
+    <div>Espresso</div>
+    <div>Doppio</div>
+    <div>Cortado</div>
+  </div>
+
+  <div class="wrapper">
+    <div class="shadow"></div>
+    <div class="title">Latte</div>
+    <div class="cup latte">
+      <div class="contents">
+        <div class="gelato">gelato</div>
+        <div class="foam">milk foam</div>
+        <div class="cream">cream</div>
+        <div class="steamed-milk">steamed milk</div>
+        <div class="milk">milk</div>
+        <div class="chocolate">chocolate</div>
+        <div class="sugar">sugar</div>
+        <div class="whiskey">whiskey</div>
+        <div class="water">water</div>
+        <div class="coffee">coffee</div>
+        <div class="espresso"><span>(2) </span> espresso</div>
+      </div>
+    </div>
+  </div>
+					</div>
+					<span class="bl-icon bl-icon-close">Back</span>
+				</section>
+				<section id="bl-work-section">
+					<div class="bl-box">
+                        <img src="coffee-maker.png" height="100" width="100" class="imgv">
+						<h2 class="bl-iconv bl-icon-works2 type1 ">V60</h2>
+					</div>
+					<div class="bl-content">
+						<h2 class="type1">V60</h2>
+						<p>The V60 Coffee Dripper (also referred to as the V60 Coffee Maker) is made by Hario. The name stems from the shape of the device. It is “V” shaped with angles of 60 degrees. The internal sides also have interior ridges which help with air flow during the brewing method.</p>
+						<br/><br/>
+<video width="620" height="340" autoplay muted class="vidv60" >
+	<source src="v60making.mp4" type="video/mp4">
+  </video>
+  <br/><br/>
+  <h2 class="type1">STEPS</h2><br/>
+						<ul id="bl-work-items">
+							<li data-panel="panel-1"><a href="#"><img src="s1.jpg" /></a></li>
+							<li data-panel="panel-2"><a href="#"><img src="s2.jpeg" /></a></li>
+							<li data-panel="panel-3"><a href="#"><img src="s3.jpeg" /></a></li>
+							<li data-panel="panel-4"><a href="#"><img src="s4.jpeg" /></a></li>
+							<li data-panel="panel-5"><a href="#"><img src="s5.jpeg" /></a></li>
+							<li data-panel="panel-6"><a href="#"><img src="s6.jpeg" /></a></li>
+							<li data-panel="panel-7"><a href="#"><img src="s72.jpg" /></a></li>
+						</ul>
+					<span class="bl-icon bl-icon-close">Back</span>
+				</section>
+				<section>
+					<div class="bl-box">
+                        <img src="coffee-pack.png" height="100" width="100" class="imgr">
+						<h2 class="bl-iconr bl-icon-blog2 type1">ROASTERS</h2>
+					</div>
+					<div class="bl-content">
+						<h2 class="type1">Favorite Roasters </h2>
+						<article>
+							<h3>BLACK KNIGHT</h3><br/>
+							<IMG src="blackknight.png" height="200" width="300"class="bic"><br/><br/>
+							<p>Black Knight is a leading company in offering exceptional coffee products, committed to delivering the highest levels of quality and excellence in everything we provide. We believe that coffee is not just a beverage, but a unique experience that our customers should enjoy with the highest standards of quality and comfort. <a href="https://b-k.coffee/?srsltid=AfmBOoqK6WVnFrM8Ppt0B5C4wwGn6WmPKMRisKwWmUDEWyBf_nLg8vjd">Read more</a></p>
+						</article>
+						<article>
+							<h3>Suwaa</h3><br/>
+							<img src="Screenshot_1-2-2025_235928_www.instagram.com.jpeg" height="200" width="300"class="bic"><br/><br/>
+							<p>A specialty coffee roaster, we select coffee crops from around the world, design their roasting methods with precision, and provide our solutions and services to businesses and coffee connoisseurs around the Kingdom. <a href="https://suwaaroastery.com/">Read more</a></p>
+						</article>
+						<article>
+							<h3>sout</h3><br/>
+							<img src="sout.jpeg" height="200" width="300"class="bic"><br/><br/>
+							<p>Creating an exceptional coffee experience, starting from selecting the finest coffee beans from the best farms around the world, all the way to the meticulous roasting process and high craftsmanship in manufacturing. <a href="https://soutroastery.com/">Read more</a></p>
+						</article>
+						<article>
+							<h3>hoy8</h3><br/>
+							<img src="hoy8.jpeg" height="200" width="300"class="bic"><br/><br/>
+							<p>Hoy8 Specialty Coffee Roastery, 100% Saudi Brand, is characterized by crops with concentrated hints. <a href="https://hoy8store.com/">Read more</a></p>
+						</article>
+						<article>
+							<h3>camel step</h3><br/>
+							<img src="camel3.jpeg"height="200" width="300"class="bic"><br/><br/>
+							<p>Camel step trading and Industry Company is one of the first specialty coffee companies in the Kingdom of Saudi Arabia, whose basic foundations were launched in 2013 under the slogan of raising the level of coffee quality in the local market in particular and the regional market in general. <a href="https://camelstep.com/">Read more</a></p>
+						</article>
+						<article>
+							<h3>Breehant</h3><br/>
+							<img src="breehant.png" height="200" width="300" class="bic"><br/><br/>
+							<p>Breehant is a Saudi roaster with an African character. Our goal is to provide quality products to all customers and create a different mark in the world of specialty coffee. Our team consists of the best specialists and experts to provide distinctive crops and provide quality that suits you. <a href="https://breehant.com/en">Read more</a></p>
+						</article>
+					</div>
+					<span class="bl-icon bl-icon-close">Back</span>
+				</section>
+				<section>
+					<a href="tr.html">
+					<div class="bl-box">
+                        <img src="chatbot.png" height="100" width="100" class="imgg">
+						<h2 class="bl-icong bl-icon-contact2 type1">ASK ME</h2>
+					</div></a>
+					<span class="bl-icon bl-icon-close">Back</span>
+				</section>
+				<!-- Panel items for the works -->
+				<div class="bl-panel-items" id="bl-panel-work-items">
+					<div data-panel="panel-1">
+						<div>
+							<img src="s1.jpg" height="300" width="400" class="s s1">
+							<h3>STEP 1</h3>
+							<h4>Put the V60 on top of the mug/server, place the filter and rinse it.</h4>
+						<p>	Rinsing with hot water saturates the filter and gets rid of the papery taste. Don’t forget to discard it thoughtfully before brewing.</p>
+						</div>
+					</div>
+					
+					<div data-panel="panel-2">
+						<div>
+							<img src="s2.jpeg"  height="300" width="400" class="s s2">
+							<h3>STEP 2</h3>
+							<h4>Grind 15g of coffee and place inside the brewer.</h4>
+
+								<p>Gently shake to settle the grounds into a flat bed.</p>
+							</div>
+					</div>
+					<div data-panel="panel-3">
+						<div>
+							<img src="s3.jpeg"  height="300" width="400" class="s s3">
+							<h3>STEP 3</h3>
+							<H4>Move everything on top of the scales, tare, and gently pour in 50g of water just off the boil.</H4>
+							<p>It helps to pour the water in a circular pattern from the outside of the filter towards the centre.</p>
+						</div>
+					</div>
+					<div data-panel="panel-4">
+						<div>
+							<img src="s4.jpeg"  height="300" width="400" class="s s4">
+							<h3>STEP 4</h3>
+							<h4>Swirl or stir to make sure all the grounds are wet, start the timer and wait 45 seconds.</h4>
+							<p>This initial wait is called the bloom and gives time for the gasses trapped in the coffee to escape.
+							</p>
+						</div>
+					</div>
+					
+					<div data-panel="panel-5">
+						<div>
+							<img src="s5.jpeg"  height="300" width="400" class="s s5">
+							<h3>STEP 5</h3>
+							<h4>Gently pour in more water until you’ve added a total of 250g. Pour using a circular motion.</h4>
+							<p>Pour each new batch of water in gently, trying not to disturb the coffee grounds too much. Aim for a total brew time of 3.5 minutes (meaning the last drop should come through the filter at minute 3:30, from the start of the first pour.
+							</p>
+						</div>
+					</div>
+					
+					<div data-panel="panel-6">
+						<div>
+							<img src="s6.jpeg"  height="300" width="400" class="s s6">
+							<h3>STEP 6</h3>
+							<h4>Give a good swirl or a gentle stir once the pour is complete.</h4>
+							<p>Stirring will help ensure all the grounds are evenly extracted.</p>
+						</div>
+					</div>
+					
+					<div data-panel="panel-7">
+						<div>
+							<img src="s72.jpg"  height="300" width="400" class="s s7">
+							<h3>STEP 7</h3>
+							<h4>Swirl your server or mug, serve and enjoy!</h4>
+							<p>Stirring will help ensure all the grounds are evenly extracted.</p>
+						</div>
+					</div>
+					<nav>
+						<span class="bl-next-work">&gt; Next Step</span>
+						<span class="bl-icon bl-icon-close"></span>
+					</nav>
+				</div>
+			</div>
+		</div><!-- /container -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/boxlayout.js"></script>
+		<script>
+			$(function() {
+				Boxlayout.init();
+			});
+		</script>
+		<script src="https://tympanus.net/codrops/adpacks/csscustom.js"></script> 
+<script src="https://tympanus.net/codrops/wp-content/plugins/oiopub-direct/js.php?type=banner&align=center&zone=1"></script>
+<script>
+    /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
+ * Build: https://modernizr.com/download/#-cssanimations-csstransitions-touch-shiv-cssclasses-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load
+ */
+;window.Modernizr=function(a,b,c){function z(a){j.cssText=a}function A(a,b){return z(m.join(a+";")+(b||""))}function B(a,b){return typeof a===b}function C(a,b){return!!~(""+a).indexOf(b)}function D(a,b){for(var d in a){var e=a[d];if(!C(e,"-")&&j[e]!==c)return b=="pfx"?e:!0}return!1}function E(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:B(f,"function")?f.bind(d||b):f}return!1}function F(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+o.join(d+" ")+d).split(" ");return B(b,"string")||B(b,"undefined")?D(e,b):(e=(a+" "+p.join(d+" ")+d).split(" "),E(e,b,c))}var d="2.6.2",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m=" -webkit- -moz- -o- -ms- ".split(" "),n="Webkit Moz O ms",o=n.split(" "),p=n.toLowerCase().split(" "),q={},r={},s={},t=[],u=t.slice,v,w=function(a,c,d,e){var f,i,j,k,l=b.createElement("div"),m=b.body,n=m||b.createElement("body");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:h+(d+1),l.appendChild(j);return f=["&#173;",'<style id="s',h,'">',a,"</style>"].join(""),l.id=h,(m?l:n).innerHTML+=f,n.appendChild(l),m||(n.style.background="",n.style.overflow="hidden",k=g.style.overflow,g.style.overflow="hidden",g.appendChild(n)),i=c(l,a),m?l.parentNode.removeChild(l):(n.parentNode.removeChild(n),g.style.overflow=k),!!i},x={}.hasOwnProperty,y;!B(x,"undefined")&&!B(x.call,"undefined")?y=function(a,b){return x.call(a,b)}:y=function(a,b){return b in a&&B(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=u.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(u.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(u.call(arguments)))};return e}),q.touch=function(){var c;return"ontouchstart"in a||a.DocumentTouch&&b instanceof DocumentTouch?c=!0:w(["@media (",m.join("touch-enabled),("),h,")","{#modernizr{top:9px;position:absolute}}"].join(""),function(a){c=a.offsetTop===9}),c},q.cssanimations=function(){return F("animationName")},q.csstransitions=function(){return F("transition")};for(var G in q)y(q,G)&&(v=G.toLowerCase(),e[v]=q[G](),t.push((e[v]?"":"no-")+v));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)y(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},z(""),i=k=null,function(a,b){function k(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function l(){var a=r.elements;return typeof a=="string"?a.split(" "):a}function m(a){var b=i[a[g]];return b||(b={},h++,a[g]=h,i[h]=b),b}function n(a,c,f){c||(c=b);if(j)return c.createElement(a);f||(f=m(c));var g;return f.cache[a]?g=f.cache[a].cloneNode():e.test(a)?g=(f.cache[a]=f.createElem(a)).cloneNode():g=f.createElem(a),g.canHaveChildren&&!d.test(a)?f.frag.appendChild(g):g}function o(a,c){a||(a=b);if(j)return a.createDocumentFragment();c=c||m(a);var d=c.frag.cloneNode(),e=0,f=l(),g=f.length;for(;e<g;e++)d.createElement(f[e]);return d}function p(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return r.shivMethods?n(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+l().join().replace(/\w+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(r,b.frag)}function q(a){a||(a=b);var c=m(a);return r.shivCSS&&!f&&!c.hasCSS&&(c.hasCSS=!!k(a,"article,aside,figcaption,figure,footer,header,hgroup,nav,section{display:block}mark{background:#FF0;color:#000}")),j||p(a,c),a}var c=a.html5||{},d=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,e=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,f,g="_html5shiv",h=0,i={},j;(function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",f="hidden"in a,j=a.childNodes.length==1||function(){b.createElement("a");var a=b.createDocumentFragment();return typeof a.cloneNode=="undefined"||typeof a.createDocumentFragment=="undefined"||typeof a.createElement=="undefined"}()}catch(c){f=!0,j=!0}})();var r={elements:c.elements||"abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video",shivCSS:c.shivCSS!==!1,supportsUnknownElements:j,shivMethods:c.shivMethods!==!1,type:"default",shivDocument:q,createElement:n,createDocumentFragment:o};a.html5=r,q(b)}(this,b),e._version=d,e._prefixes=m,e._domPrefixes=p,e._cssomPrefixes=o,e.testProp=function(a){return D([a])},e.testAllProps=F,e.testStyles=w,e.prefixed=function(a,b,c){return b?F(a,b,c):F(a,"pfx")},g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+t.join(" "):""),e}(this,this.document),function(a,b,c){function d(a){return"[object Function]"==o.call(a)}function e(a){return"string"==typeof a}function f(){}function g(a){return!a||"loaded"==a||"complete"==a||"uninitialized"==a}function h(){var a=p.shift();q=1,a?a.t?m(function(){("c"==a.t?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){"img"!=a&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l=b.createElement(a),o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};1===y[c]&&(r=1,y[c]=[]),"object"==a?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),"img"!=a&&(r||2===y[c]?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i("c"==b?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),1==p.length&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&"[object Opera]"==o.call(a.opera),l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return"[object Array]"==o.call(a)},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,h){var i=b(a),j=i.autoCallback;i.url.split(".").pop().split("?").shift(),i.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]),i.instead?i.instead(a,e,f,g,h):(y[i.url]?i.noexec=!0:y[i.url]=1,f.load(i.url,i.forceCSS||!i.forceJS&&"css"==i.url.split(".").pop().split("?").shift()?"c":c,i.noexec,i.attrs,i.timeout),(d(e)||d(j))&&f.load(function(){k(),e&&e(i.origUrl,h,g),j&&j(i.origUrl,h,g),y[i.url]=2})))}function h(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var i,j,l=this.yepnope.loader;if(e(a))g(a,0,l,0);else if(w(a))for(i=0;i<a.length;i++)j=a[i],e(j)?g(j,0,l,0):w(j)?B(j):Object(j)===j&&h(j,l);else Object(a)===a&&h(a,l)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,null==b.readyState&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))};
+
+/**
+ * boxlayout.js v1.0.0
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * https://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright 2013, Codrops
+ * http://www.codrops.com
+ */
+var Boxlayout = (function() {
+
+	var $el = $( '#bl-main' ),
+		$sections = $el.children( 'section' ),
+		// works section
+		$sectionWork = $( '#bl-work-section' ),
+		// work items
+		$workItems = $( '#bl-work-items > li' ),
+		// work panels
+		$workPanelsContainer = $( '#bl-panel-work-items' ),
+		$workPanels = $workPanelsContainer.children( 'div' ),
+		totalWorkPanels = $workPanels.length,
+		// navigating the work panels
+		$nextWorkItem = $workPanelsContainer.find( 'nav > span.bl-next-work' ),
+		// if currently navigating the work items
+		isAnimating = false,
+		// close work panel trigger
+		$closeWorkItem = $workPanelsContainer.find( 'nav > span.bl-icon-close' ),
+		transEndEventNames = {
+			'WebkitTransition' : 'webkitTransitionEnd',
+			'MozTransition' : 'transitionend',
+			'OTransition' : 'oTransitionEnd',
+			'msTransition' : 'MSTransitionEnd',
+			'transition' : 'transitionend'
+		},
+		// transition end event name
+		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+		// support css transitions
+		supportTransitions = Modernizr.csstransitions;
+
+	function init() {
+		initEvents();
+	}
+
+	function initEvents() {
+		
+		$sections.each( function() {
+			
+			var $section = $( this );
+
+			// expand the clicked section and scale down the others
+			$section.on( 'click', function() {
+
+				if( !$section.data( 'open' ) ) {
+					$section.data( 'open', true ).addClass( 'bl-expand bl-expand-top' );
+					$el.addClass( 'bl-expand-item' );	
+				}
+
+			} ).find( 'span.bl-icon-close' ).on( 'click', function() {
+				
+				// close the expanded section and scale up the others
+				$section.data( 'open', false ).removeClass( 'bl-expand' ).on( transEndEventName, function( event ) {
+					if( !$( event.target ).is( 'section' ) ) return false;
+					$( this ).off( transEndEventName ).removeClass( 'bl-expand-top' );
+				} );
+
+				if( !supportTransitions ) {
+					$section.removeClass( 'bl-expand-top' );
+				}
+
+				$el.removeClass( 'bl-expand-item' );
+				
+				return false;
+
+			} );
+
+		} );
+
+		// clicking on a work item: the current section scales down and the respective work panel slides up
+		$workItems.on( 'click', function( event ) {
+
+			// scale down main section
+			$sectionWork.addClass( 'bl-scale-down' );
+
+			// show panel for this work item
+			$workPanelsContainer.addClass( 'bl-panel-items-show' );
+
+			var $panel = $workPanelsContainer.find("[data-panel='" + $( this ).data( 'panel' ) + "']");
+			currentWorkPanel = $panel.index();
+			$panel.addClass( 'bl-show-work' );
+
+			return false;
+
+		} );
+
+		// navigating the work items: current work panel scales down and the next work panel slides up
+		$nextWorkItem.on( 'click', function( event ) {
+			
+			if( isAnimating ) {
+				return false;
+			}
+			isAnimating = true;
+
+			var $currentPanel = $workPanels.eq( currentWorkPanel );
+			currentWorkPanel = currentWorkPanel < totalWorkPanels - 1 ? currentWorkPanel + 1 : 0;
+			var $nextPanel = $workPanels.eq( currentWorkPanel );
+
+			$currentPanel.removeClass( 'bl-show-work' ).addClass( 'bl-hide-current-work' ).on( transEndEventName, function( event ) {
+				if( !$( event.target ).is( 'div' ) ) return false;
+				$( this ).off( transEndEventName ).removeClass( 'bl-hide-current-work' );
+				isAnimating = false;
+			} );
+
+			if( !supportTransitions ) {
+				$currentPanel.removeClass( 'bl-hide-current-work' );
+				isAnimating = false;
+			}
+			
+			$nextPanel.addClass( 'bl-show-work' );
+
+			return false;
+
+		} );
+
+		// clicking the work panels close button: the current work panel slides down and the section scales up again
+		$closeWorkItem.on( 'click', function( event ) {
+
+			// scale up main section
+			$sectionWork.removeClass( 'bl-scale-down' );
+			$workPanelsContainer.removeClass( 'bl-panel-items-show' );
+			$workPanels.eq( currentWorkPanel ).removeClass( 'bl-show-work' );
+			
+			return false;
+
+		} );
+
+	}
+
+	return { init : init };
+
+})();
+let options = document.querySelectorAll(".options div");
+let cup = document.querySelector(".cup");
+let title = document.querySelector(".title");
+
+function formatOption(option) {
+    return option.toLowerCase().replace(/\s/g, "-");
+}
+
+options.forEach((option) => {
+    option.addEventListener("click", function() {
+        options.forEach((opt) => {
+            cup.classList.remove(formatOption(opt.textContent));
+        });
+        cup.classList.add(formatOption(this.textContent));
+        title.innerHTML = this.textContent;
+    });
+});
+</script>
+	</body>
+</html>

@@ -1,0 +1,585 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body{ 
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    /* Add your background pattern here */
+    background-color: rgb(0, 0, 0);
+    background-image: radial-gradient(rgba(253, 253, 253, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: relative;}
+
+    #container{
+        transition: 1s all ease-in-out;
+    }
+    
+    #container.menuopen{
+        filter: blur(8px);
+        transform: scale(1.2);
+    }
+    
+    section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        position: relative;
+        background-size: cover;
+        padding: 50px;
+    }
+    
+    section::after{
+        content: "";
+        position: absolute;
+        
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+    }
+    
+    section h1{
+        font-size: 120px;
+        z-index: 2;
+    }
+    
+    header{
+        z-index: 9999;
+        position: relative;
+    }
+    
+    header #logo{
+        position: fixed;
+        top: 30px;
+        left: 0;
+        right: 0;
+        width: 90px;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 100%;
+        opacity: 1;
+        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
+    }
+    
+    header nav{
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 420px;
+        z-index: 100;
+        top: 130px;
+        margin: 0 auto;
+        background: rgba(225, 255, 213, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: 1s all cubic-bezier(0.080, 0.9, 0.18, 1) 0.2s;
+    }
+    
+    header nav a{
+        color: #def5d2;
+        text-shadow: 1px 1px rgb(35, 39, 33);
+        text-decoration: none;
+        font-weight: 700;
+        padding: 10px 16px;
+        font-size: 18px;
+        letter-spacing: 1.8px;
+        transition: 0.3s all cubic-bezier(0.080, 0.9, 0.18, 1) 0.6s, 0.3s color ease;
+    }
+    
+    header nav a:hover{
+        color: #0d160d;
+    }
+    
+    header nav button{
+        background: rgba(27, 60, 26, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        width: 60px;
+        height: 60px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        position: absolute;
+        z-index: 100;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 100%;
+        cursor: pointer;
+        transform: scale(0);
+        transition: 0.3s all cubic-bezier(0.080, 0.9, 0.18, 1) 0.2s;
+    }
+    
+    header nav button span{
+        width: 50%;
+        background-color: #fff;
+        height: 3px;
+        display: block;
+        margin: 4px auto;
+        transform: scale(0);
+        transition: 0.6s transform cubic-bezier(0.080, 0.9, 0.18, 1) 0s, 0.3s margin ease-in 0s;
+    }
+    
+    header nav button:hover span{
+        margin: 9px auto;
+    }
+    
+    header.sticky #logo{
+        opacity: 0;
+    }
+    
+    header.sticky nav{
+        top: 20px;
+        padding: 0;
+        width: 80px;
+        height: 80px;
+    }
+    
+    header.sticky nav button{
+        transform: scale(1);
+        transition-delay: 0.3s;
+    }
+    
+    header.sticky nav button span{
+        transform: scaleX(1);
+        transition: 0.6s transform cubic-bezier(0.080, 0.9, 0.18, 1) 0.8s, 0.3s margin ease-in 0s;
+    }
+    
+    header.sticky nav a{
+        opacity: 0;
+        transform: scale(0.3);
+        transition-delay: 0.1s;
+    }
+    
+    @media screen and (max-width: 520px) {
+        
+        header nav{
+            height: 60px;
+            width: 390px;
+        }
+    
+        header nav button{
+            width: 50px;
+            height: 50px;
+        }
+    
+        header nav a{
+            font-size: 16px;
+        }
+    
+        section h1{
+            font-size: 80px;
+        }
+    
+        header.sticky nav{
+            width: 70px;
+            height: 70px;
+        }
+    
+    }
+/* From Uiverse.io by Jarol20cb */ 
+.card {
+  width: 30rem;
+  height: 290px;
+  background-color: #81917c;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  right: 8em;
+  cursor: pointer;
+}
+
+.code-container {
+  background-color: #222722;
+  border-radius: 8px;
+  padding: 16px;
+  height: 240px;
+}
+
+.line {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 4px 0;
+  position: relative;
+}
+
+.code-comment {
+  color: #5c6370;
+}
+
+.code-keyword {
+  color: #c678dd;
+}
+
+.code-function {
+  color: #61afef;
+}
+
+.code-variable {
+  color: #dcdcaa;
+}
+
+.code-string {
+  color: #98c379;
+  text-shadow: 2px 2px rgb(76, 81, 74);
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.indent {
+  padding-left: 20px;
+}
+
+/* Animación */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.float-animation {
+  animation: float 2s ease-in-out infinite;
+}
+
+
+/* From Uiverse.io by MuhammadHasann */ 
+.cardp {
+  --lime-500: #505f4d;
+  --violet-700: #132318;
+
+  overflow: hidden;
+  position: relative;
+  bottom: 5em;
+  right: 17em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+
+  padding: 1rem;
+  width: 29rem;
+  height: auto;
+  min-height: 16rem;
+  background-color: var(--lime-500);
+
+  border-radius: 0.5rem;
+}
+
+.cardp::before {
+  content: "";
+  position: absolute;
+  top: 7rem;
+  right: 2rem;
+
+  width: 1.25rem;
+  aspect-ratio: 1 / 1;
+  background-color: var(--violet-700);
+
+  border-radius: 9999px;
+}
+
+.cardp::after {
+  content: "";
+  position: absolute;
+  top: 8.75rem;
+  right: -0.5rem;
+
+  width: 3rem;
+  aspect-ratio: 1 / 1;
+  background-color: var(--violet-700);
+
+  border-radius: 9999px;
+}
+
+.cardp .carousel {
+  position: absolute;
+  left: 0;
+
+  animation: carousel 10s linear var(--carousel_direction, normal) infinite;
+}
+
+.cardp .carousel[data-direction="right"] {
+  --carousel_direction: reverse;
+}
+.cardp .carousel[data-position="top"] {
+  top: 0.75rem;
+}
+.cardp .carousel[data-position="bottom"] {
+  bottom: 0.75rem;
+}
+
+.cardp .carousel .carousel__text {
+  font-size: 0.75rem;
+  color: rgb(156, 179, 155);
+  text-wrap: nowrap;
+}
+
+@keyframes carousel {
+  to {
+    transform: translate(-50%);
+  }
+}
+
+.cardp .image {
+  position: relative;
+  top: 1.3em;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+  aspect-ratio: 1 / 1;
+  background-color: rgb(16, 23, 16);
+
+  border-radius: 1.29rem;
+}
+
+.cardp .title {
+  position: relative;
+  z-index: 10;
+top: 0.6em;
+  font-size: 1rem;
+  color:rgb(31, 34, 29);
+  font-weight: bold;
+}
+
+
+.cardp .title2 {
+  position: relative;
+  z-index: 10;
+  font-size: 0.8rem;
+  color:rgb(31, 34, 29);
+  font-weight: bold;
+  text-shadow:2px 2px #818876;
+}
+
+.cardp .paragraph {
+  position: relative;
+  bottom: 1em;
+  z-index: 10;
+
+  font-weight: bold;
+  padding-right: 0.25rem;
+
+  font-size: 0.85rem;
+  color:rgb(31, 34, 29);
+}
+
+  /* From Uiverse.io by JaydipPrajapati1910 */ 
+.cardf-client {
+  background: #393f38;
+  width: 29rem;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 4px solid #55675c;
+  box-shadow: 0 6px 10px #031608;
+  border-radius: 10px;
+  text-align: center;
+  color: #9ebb95;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  position: relative;
+  bottom: 90em;
+  left: 31em;
+}
+
+.cardf-client:hover {
+  transform: translateY(-10px);
+}
+
+.user-picture {
+  overflow: hidden;
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
+  border: 4px solid #2e3a32;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.user-picture svg {
+  width: 2.5rem;
+  fill: currentColor;
+}
+
+.name-client {
+  margin: 0;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.name-client span {
+  display: block;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.social-media:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background: #fff;
+}
+
+.social-media a {
+  position: relative;
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-media a:last-child {
+  margin-right: 0;
+}
+
+.social-media a svg {
+  width: 1.1rem;
+  fill: currentColor;
+}
+
+.social-media a svg:hover{
+  color: #212420;
+}
+/* From Uiverse.io by Shoh2008 */ 
+.containera {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.carda {
+  position: relative;
+  background: #272b28;
+  width: 450px;
+  height: 250px;
+  border-radius: 10px;
+  padding: 2rem;
+  color: #aaa;
+  box-shadow: 0 .27rem .27rem rgba(31, 86, 31, 0.2),
+    0 0 2rem rgba(111, 155, 84, 0.2);
+  overflow: hidden;
+  right: 8.5em;
+  top: 2.6em;
+  
+}
+
+.carda__image-containera {
+  margin: -2rem -2rem 1rem -2rem;
+}
+
+.carda__line {
+  opacity: 0;
+  animation: LineFadeIn .8s .8s forwards ease-in;
+}
+
+.carda__image {
+  opacity: 0;
+  animation: ImageFadeIn .8s 1.4s forwards;
+}
+
+.carda__title {
+  color: white;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  font-size: 22px;
+}
+
+.carda__content {
+  margin-top: -1rem;
+  opacity: 0;
+  animation: ContentFadeIn .8s 1.6s forwards;
+}
+
+.carda__svg {
+  position: absolute;
+  left: 0;
+  top: 105px;
+}
+
+@keyframes LineFadeIn {
+  0% {
+    opacity: 0;
+    d: path("M 0 300 Q 0 300 0 300 Q 0 300 0 300 C 0 300 0 300 0 300 Q 0 300 0 300 ");
+    stroke: #fff;
+  }
+
+  50% {
+    opacity: 1;
+    d: path("M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300");
+    stroke: #c0f0a6;
+  }
+
+  100% {
+    opacity: 1;
+    d: path("M -2 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 802 400");
+    stroke: #a4f78b;
+  }
+}
+
+@keyframes ContentFadeIn {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ImageFadeIn {
+  0% {
+    transform: translate(-.5rem, -.5rem) scale(1.05);
+    opacity: 0;
+    filter: blur(2px);
+  }
+
+  50% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+
+  100% {
+    transform: translateY(0) scale(1.0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
