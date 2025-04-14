@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<title>webDev page</title>
+<head>
+
+<link rel="stylesheet" href="dev.css">
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+          <h3>Last works</h3>
+        </div>
+        
+        <div class="card-content">
+          <div class="projects">
+            
+            <div class="project">
+              <a href="https://meuni3.github.io/4youxgaming/" >
+                <!-- Credit image : Unsplash - Jason Blackeye -->
+                <img src="HOME4UX.png" width="400px">
+                <div class="project-details">
+                  <p>4UXGAMING PROJECT</p>
+                </div>
+              </a>
+            </div>
+            
+            <div class="project">
+              <a href="https://meuni3.github.io/sys1y/" >
+                <!-- Credit image : Unsplash - Anthony Intraversato -->
+                <img src="solar.png" width="400px">
+                <div class="project-details">
+                  <p>SOLAR SYSTEM PROJECT</p>
+                </div>
+              </a>
+            </div>
+            
+            <div class="project">
+              <a href="maha.html" >
+                <!-- Credit image : Unsplash - Tim Bogdanov -->
+                <img src="unini.png" width="400px">
+                <div class="project-details">
+                  <p>UNI✤M PROJECT</p>
+                </div>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="card-footer">
+          <div class="card-footer-content">
+            <div class="profile">
+              <div class="profile-group">
+                <div class="name">MAHA</div>
+                <div class="job">Web developer</div>
+              </div>
+            </div>
+            <div class="skills">
+              <div class="skills-group">
+                <div class="skill">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/1024px-HTML5_Badge.svg.png"  width="50px" alt="" />
+                </div>
+                
+                <div class="skill">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/240px-CSS3_logo.svg.png"  width="50px" alt="" />
+                </div>
+                
+                <div class="skill">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"  width="50px" alt="" />
+                </div>
+                
+                <div class="skill">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"  width="50px" alt="" />
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-img">
+          <!-- Credit image : Unsplash - Rachel McDermott -->
+          <img src="maki.jpg" width="100px" alt="" />
+        </div>
+        <div class="canvas-container">
+          <canvas id="circles"></canvas>
+        </div>
+      </div>
+<script>
+    //Create canvas and initialize context
+const canvas = document.getElementById("circles");
+const ctx = canvas.getContext("2d");
+
+//Set the dimensions of canvas equal to the dimensions of the card
+const W = canvas.width = 600;
+const H = canvas.height = 300;
+
+//Number of circles
+const circleNbr = 30;
+
+// Gradient
+const bgColor1 = '  #030511';
+const bgColor2 = '  lightblue';
+
+//Create an array of circles
+let circles = []; 
+for(let i = 0; i < circleNbr; i++ ){
+  circles.push(new circle());
+}
+
+//Function to create a circle
+function circle() {
+  //Random Position
+  this.x = Math.random()*W;
+  this.y = Math.random()*H;
+
+  //Random Velocities
+  this.vx = 0.2 + Math.random()*0.5;
+  this.vy = -this.vx;
+
+  //Random Radius
+  this.r = 3 + Math.random()*10;
+
+  //Random opacity color
+  this.color = "rgba(2, 1, 8,"+(Math.random()*(1 - .5) + .5).toFixed(1)+")";
+}
+
+//Function to draw the gradient background with the circles
+function draw() {
+
+  const grd = ctx.createLinearGradient(0, 0, W, H);
+  grd.addColorStop(0, bgColor1);
+  grd.addColorStop(1, bgColor2);
+
+  //Fill the canvas with the gradient
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, W, H);
+
+  //Fill the canvas with the circles
+  for(let j = 0; j < circles.length; j++) {
+    let c = circles[j];
+
+    //Draw the circle
+    ctx.beginPath();
+    ctx.arc(c.x, c.y, c.r, Math.PI*2, false);
+    ctx.fillStyle = c.color;
+    ctx.fill();
+
+    //Velocity
+    c.x -= c.vx;
+    c.y += c.vy;
+
+    //When the circles are out of the canvas
+    if(c.x < -20) c.x = W+20;
+    if(c.y < -20) c.y = H+20;
+  }
+}
+setInterval(draw, 30);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
