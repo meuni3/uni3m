@@ -1,8 +1,8 @@
 body {
+  min-height: 100vh;
   margin: 0;
-  background-color: #264653;
-  font-family: Arial, sans-serif;
   overflow-x: hidden;
+  background-color: #264653;
 }
 
 img {
@@ -17,13 +17,13 @@ img {
   margin: auto;
   width: 100%;
   max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .flipbook {
   margin: 3em auto;
   width: 90%;
-  max-width: 1000px;
-  height: auto;
+  max-width: 60em;
   position: relative;
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -39,6 +39,7 @@ img {
   transition: transform 1s;
   transform: rotateY(0deg);
   transform-origin: left 0px;
+  border: 1px solid #000;
 }
 
 .page {
@@ -47,17 +48,19 @@ img {
   width: 100%;
   height: 100%;
   padding: 1em;
-  background: #f4e3c1;
   overflow-wrap: break-word;
-  box-shadow: inset 0 0 5px #0003;
 }
 
 .page.front {
   transform: rotateY(0deg) translateZ(1px);
+  border-radius: 0em 1em 1em 0;
+  box-shadow: inset 5px 0px 5px -5px #0005;
 }
 
 .page.back {
   transform: rotateY(180deg) translateZ(1px);
+  border-radius: 1em 0em 0em 1em;
+  box-shadow: inset -5px 0px 5px -5px #0005;
 }
 
 .leaf.turned {
@@ -83,6 +86,41 @@ img {
   left: 0.75em;
 }
 
+.contents-row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.contents-row .spacer {
+  flex: 1 1;
+  height: 1em;
+  border-bottom: 1px dashed #000;
+}
+
+.contents-row .text {
+  flex: 0 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: cursive;
+}
+
+.chr {
+  border-radius: 30%;
+  position: relative;
+  top: 2em;
+}
+
+.chr1 {
+  position: relative;
+  left: 7em;
+}
+
+.THEEND {
+  position: relative;
+  left: 5em;
+}
+
 .controls {
   display: flex;
   justify-content: center;
@@ -100,19 +138,27 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .page {
-    font-size: 0.9em;
-    padding: 0.5em;
-  }
-
   .flipbook {
     width: 100%;
     transform: scale(0.95);
     transform-origin: top center;
   }
 
+  .page {
+    font-size: 0.9em;
+    padding: 0.5em;
+  }
+
   .controls {
     flex-direction: column;
     gap: 1em;
+  }
+
+  .chr1 {
+    left: 0;
+  }
+
+  h1, h2, h3 {
+    font-size: 1em;
   }
 }
