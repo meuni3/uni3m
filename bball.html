@@ -171,6 +171,62 @@
         font-size: 16px;
       }
     }
+.ball-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 200px;
+  margin-top: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ball {
+  height: 60px;
+  width: 60px;
+  background: hsl(30, 80%, 30%);
+  border-radius: 50%;
+  animation: drop 2s infinite ease-in-out;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-150px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150px);
+  }
+}
+
+.floor::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  height: 10px;
+  background: radial-gradient(hsl(0 0% 10% / 0.5), transparent);
+  border-radius: 50%;
+  z-index: -1;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: show 2s infinite ease-in-out;
+}
+
+@keyframes show {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+    
   </style>
 </head>
  
@@ -208,6 +264,11 @@
   <img src="https://i.ibb.co/QnxKyQn/1200px-Golden-State-Warriors-logo-svg.png" alt="1200px-Golden-State-Warriors-logo-svg" border="0" id="logoOfGolden">
   <img src="https://i.ibb.co/QnxKyQn/1200px-Golden-State-Warriors-logo-svg.png" alt="1200px-Golden-State-Warriors-logo-svg" border="0" id="logoOfGolden2">
   </main>
+  <!-- الكورة المتحركة -->
+<div class="ball-container">
+  <div class="ball floor"></div>
+</div>
+
   <div class="floor">
     <div class="ball">
       <svg viewBox="0 0 496 512" width="100" title="basketball-ball">
