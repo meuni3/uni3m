@@ -1,194 +1,135 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>باقتك</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="meho.css" rel="stylesheet" type="text/css" />
+  <title>UNI✤M</title>
   <style>
-    /* الأساسيات */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f7f7f7;
-      color: #333;
+      background-color: #fff8f1;
+      color: #000;
+      overflow-x: hidden;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        flex-direction: row;
-      }
-    }
-
-    /* القائمة الجانبية */
     .left {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      width: 100%;
+      width: 20%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #e3c8a0b1;
+      background-image: radial-gradient(rgba(47, 32, 0, 0.171) 2px, transparent 0);
+      background-size: 30px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 1rem;
+      box-sizing: border-box;
     }
 
-    @media (min-width: 768px) {
-      .left {
-        width: 25%;
-        position: fixed;
-        height: 100vh;
-      }
+    .left img {
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
     }
 
-    .left .h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      text-align: center;
+    .h1 {
+      font-size: 24px;
+      margin: 0.5rem 0;
     }
 
     .p {
-      margin: 10px 0;
-    }
-
-    .ct {
-      margin-top: 30px;
+      display: block;
+      margin: 1rem 0;
+      text-decoration: none;
+      color: #000;
       font-weight: bold;
     }
 
-    .contact-icons a {
-      margin: 0 5px;
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
+    .p:hover {
+      text-decoration: underline;
     }
 
-    /* المحتوى */
-    .main-content {
-      margin-top: 20px;
-      padding: 20px;
-      width: 100%;
+    .ct {
+      margin-top: 2rem;
+      font-weight: bold;
     }
 
-    @media (min-width: 768px) {
-      .main-content {
-        margin-right: 25%;
-        width: 75%;
-      }
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    /* البطاقات */
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    @media (min-width: 600px) {
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 992px) {
-      .cards {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    .svg-icon {
+      margin: 0.3rem;
+      vertical-align: middle;
+      fill: #000;
     }
 
     .card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
+      margin-left: 22%;
+      padding: 2rem;
+      max-width: 600px;
     }
 
     .card-title {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
+      font-size: 2rem;
       font-weight: bold;
     }
 
     .card-des {
-      font-size: 0.95rem;
-      color: #555;
+      margin: 1rem 0;
+      line-height: 1.6;
     }
 
-    /* التحميل */
-    .spinner {
-      margin: 40px auto;
-      border: 6px solid #f3f3f3;
-      border-top: 6px solid #3498db;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
+    .infolink {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .arrow-icon {
+      margin-left: 0.5rem;
     }
 
-    /* تذييل */
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #777;
+    .sparkle {
+      position: absolute;
+      pointer-events: none;
+      background: radial-gradient(circle, #fff, transparent);
+      filter: drop-shadow(0 0 10px #efbe44);
+      animation: sparkle 1.5s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0% { transform: scale(0) rotate(0deg); opacity: 0; }
+      50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
+      100% { transform: scale(0) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="left">
-      <div class="h1">باقتك</div>
-      <div class="p">افضل الباقات بأقل الأسعار</div>
-      <div class="ct">تواصل معنا</div>
-      <div class="contact-icons">
-        <a href="https://wa.me/966540000000" target="_blank">واتساب</a> |
-        <a href="https://x.com/username" target="_blank">تويتر</a>
-      </div>
-    </div>
 
-    <div class="main-content">
-      <div class="header">
-        <h2>مرحباً بك 👋</h2>
-        <p>استعرض أفضل العروض الحالية</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <div class="card-title">باقة 1</div>
-          <div class="card-des">تفاصيل الباقة هنا</div>
-        </div>
-        <div class="card">
-          <div class="card-title">باقة 2</div>
-          <div class="card-des">تفاصيل الباقة هنا</div>
-        </div>
-        <div class="card">
-          <div class="card-title">باقة 3</div>
-          <div class="card-des">تفاصيل الباقة هنا</div>
-        </div>
-      </div>
-
-      <div class="spinner"></div>
-
-      <footer>
-        جميع الحقوق محفوظة © 2025
-      </footer>
-    </div>
+  <div class="left">
+    <img src="your-image.jpg" alt="Maha" />
+    <h1 class="h1">UNI✤M</h1>
+    <a href="connect.html" class="p">PERSONAL</a>
+    <a href="topic.html" class="p">TOPIC</a>
+    <a href="info2.html" class="p">INFO</a>
+    <a href="cv ma.pdf" class="p">CV</a>
+    <hr />
+    <p class="ct">CONTACT</p>
+    <a href="https://www.instagram.com/unix3m/"><svg class="svg-icon" width="24" height="24" viewBox="0 0 1024 1024"><path d="..."/></svg></a>
+    <a href="mailto:mahalghamdii00@gmail.com"><svg class="svg-icon" width="24" height="24" viewBox="0 0 1024 1024"><path d="..."/></svg></a>
+    <a href="https://www.linkedin.com/in/maha-alghamdi-2321a3301/"><svg class="svg-icon" width="24" height="24" viewBox="0 0 1024 1024"><path d="..."/></svg></a>
   </div>
-</body>
-</html>
+
+  <div class="card">
+    <p class="card-title">HELLO WORLD!</p>
+    <p class="card-des">
+      Welcome to UNI✤M's personal website! I’m MAHA, a beginner web developer, graphic designer, and occasional writer. This site is where I share my journey, showcase work, and connect with others.
+    </p>
+    <p>
+      <a href="info2.html" class="infolink">
+        <span>View More</span>
+        <svg class="arrow-icon" viewBox="0 0 16 16" width="16" height="16"><path d="M4 8a.5.5..."/></svg>
+      </a>
+    </p>
