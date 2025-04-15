@@ -121,52 +121,41 @@
       color: #000;
     }
 
-    /* Ball animation section */
-    .ball {
-      height: 10vmin;
-      width: 10vmin;
-      background: hsl(30 80% 30%);
-      border-radius: 50%;
-      animation: drop 2s infinite var(--ease);
-    }
+  
+.ball {
+  height: 10vmin;
+  width: 10vmin;
+  background: hsl(30 80% 30%);
+  border-radius: 50%;
+  animation: drop 2s infinite var(--ease);
+}
 
-    @keyframes drop {
-      0%, 50% {
-        translate: 0 -300%;
-      }
-      50%, 100% {
-        translate: 0 0;
-      }
-    }
+@keyframes drop {
+  0%, 50% {
+    translate: 0 -300%;
+  }
+  50%, 100% {
+    translate: 0 0;
+  }
+}
 
-    .floor {
-      position: relative;
-    }
+.floor {
+  position: relative;
+}
 
-    .floor::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      width: 80%;
-      height: 10%;
-      background: radial-gradient(hsl(0 0% 10% / 0.5), hsl(0 0% 10% / 0.1));
-      border-radius: 50%;
-      z-index: -1;
-      left: 50%;
-      translate: -50% 50%;
-      animation: show 2s infinite var(--ease);
-    }
-
-    @keyframes show {
-      0%, 50% {
-        opacity: 0;
-        scale: 0;
-      }
-      50%, 100% {
-        opacity: 1;
-        scale: 1;
-      }
-    }
+.floor::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  height: 10%;
+  background: radial-gradient(hsl(0 0% 10% / 0.5), hsl(0 0% 10% / 0.1));
+  border-radius: 50%;
+  z-index: -1;
+  left: 50%;
+  translate: -50% 50%;
+  animation: show 2s infinite var(--ease);
+}
 
     /* Responsive text scaling */
     @media (max-width: 768px) {
