@@ -46,27 +46,28 @@
       text-align: justify;
       text-shadow: 1px 1px #000;
     }
+
 #myBtn {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 120px;
-  font-size: 18px;
-  padding: 12px;
-  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
   background: #ea7900;
   color: #5f2100;
+  border: none;
   border-radius: 100px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-  z-index: 1;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-
-    #myBtn:hover {
-      background: #ffca7b;
-      color: rgb(100, 55, 0);
-    }
+#myBtn:hover {
+  background: #ffca7b;
+  color: rgb(100, 55, 0);
+  transform: scale(1.05);
+}
 
     @media (max-width: 768px) {
       h1 {
