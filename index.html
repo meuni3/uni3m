@@ -4,43 +4,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .container {
-  display: flex;
-  flex-direction: row; /* أو column حسب الحاجة */
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
     body {
       font-family: Arial;
       color: rgb(0, 0, 0);
     }
-    /* لتصميم الشاشة الكبيرة (أجهزة الكمبيوتر) */
-@media (min-width: 1024px) {
-  .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* لتصميم الشاشات المتوسطة (أجهزة لوحية) */
-@media (max-width: 1024px) and (min-width: 768px) {
-  .container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* لتصميم الشاشات الصغيرة (هواتف محمولة) */
-@media (max-width: 768px) {
-  .container {
-    display: block;
-  }
-  .menu {
-    font-size: 14px;
-  }
-}
-
+    
     .split {
       height: 100%;
       width: 50%;
