@@ -4,6 +4,95 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        body {
+  font-family: Arial;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+}
+
+.split {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.left {
+  background-color: #e3c8a0b1;
+  background-image: radial-gradient(rgba(47, 32, 0, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+  width: 20%;
+  height: 100%;
+  padding-top: 20px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .left {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+
+  .split {
+    flex-direction: column;
+  }
+
+  .centered {
+    width: 100%;
+    top: auto;
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .left {
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  h1.h1 {
+    font-size: 2rem;
+  }
+
+  .p {
+    font-size: 1.5rem;
+  }
+
+  .card-title, .card-des, .card-text {
+    font-size: 1rem;
+  }
+}
+
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  background: radial-gradient(circle, #fff, transparent);
+  filter: drop-shadow(0 0 10px #efbe44);
+  animation: sparkle 1.5s linear infinite;
+}
+
+@keyframes sparkle {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
     body {
       font-family: Arial;
       color: rgb(0, 0, 0);
