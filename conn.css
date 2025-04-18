@@ -1,267 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-@media (max-width: 600px);
-body{ 
-    width: 100%;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    /* Add your background pattern here */
-    background-color: rgb(0, 0, 0);
-    background-image: radial-gradient(rgba(253, 253, 253, 0.171) 2px, transparent 0);
-    background-size: 30px 30px;
-    background-position: relative;}
-
-    #container{
-        transition: 1s all ease-in-out;
-    }
-    
-    #container.menuopen{
-        filter: blur(8px);
-        transform: scale(1.2);
-    }
-    
-    section{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        position: relative;
-        background-size: cover;
-        padding: 50px;
-    }
-    
-    section::after{
-        content: "";
-        position: absolute;
-        
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        opacity: 0.5;
-    }
-    
-    section h1{
-        font-size: 120px;
-        z-index: 2;
-    }
-    
-    header{
-        z-index: 9999;
-        position: relative;
-    }
-    
-    header #logo{
-        position: fixed;
-        top: 30px;
-        left: 0;
-        right: 0;
-        width: 90px;
-        height: auto;
-        margin: 0 auto;
-        border-radius: 100%;
-        opacity: 1;
-        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
-    }
-    
-    header nav{
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        left: 0;
-        right: 0;
-        width: 420px;
-        z-index: 100;
-        top: 130px;
-        margin: 0 auto;
-        background: rgba(225, 255, 213, 0.2);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        transition: 1s all cubic-bezier(0.080, 0.9, 0.18, 1) 0.2s;
-    }
-    
-    header nav a{
-        color: #def5d2;
-        text-shadow: 1px 1px rgb(35, 39, 33);
-        text-decoration: none;
-        font-weight: 700;
-        padding: 10px 16px;
-        font-size: 18px;
-        letter-spacing: 1.8px;
-        transition: 0.3s all cubic-bezier(0.080, 0.9, 0.18, 1) 0.6s, 0.3s color ease;
-    }
-    
-    header nav a:hover{
-        color: #0d160d;
-    }
-    
-    header nav button{
-        background: rgba(27, 60, 26, 0.1);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        width: 60px;
-        height: 60px;
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        position: absolute;
-        z-index: 100;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        border-radius: 100%;
-        cursor: pointer;
-        transform: scale(0);
-        transition: 0.3s all cubic-bezier(0.080, 0.9, 0.18, 1) 0.2s;
-    }
-    
-    header nav button span{
-        width: 50%;
-        background-color: #fff;
-        height: 3px;
-        display: block;
-        margin: 4px auto;
-        transform: scale(0);
-        transition: 0.6s transform cubic-bezier(0.080, 0.9, 0.18, 1) 0s, 0.3s margin ease-in 0s;
-    }
-    
-    header nav button:hover span{
-        margin: 9px auto;
-    }
-    
-    header.sticky #logo{
-        opacity: 0;
-    }
-    
-    header.sticky nav{
-        top: 20px;
-        padding: 0;
-        width: 80px;
-        height: 80px;
-    }
-    
-    header.sticky nav button{
-        transform: scale(1);
-        transition-delay: 0.3s;
-    }
-    
-    header.sticky nav button span{
-        transform: scaleX(1);
-        transition: 0.6s transform cubic-bezier(0.080, 0.9, 0.18, 1) 0.8s, 0.3s margin ease-in 0s;
-    }
-    
-    header.sticky nav a{
-        opacity: 0;
-        transform: scale(0.3);
-        transition-delay: 0.1s;
-    }
-    
-    @media screen and (max-width: 520px) {
-        
-        header nav{
-            height: 60px;
-            width: 390px;
-        }
-    
-        header nav button{
-            width: 50px;
-            height: 50px;
-        }
-    
-        header nav a{
-            font-size: 16px;
-        }
-    
-        section h1{
-            font-size: 80px;
-        }
-    
-        header.sticky nav{
-            width: 70px;
-            height: 70px;
-        }
-    
-    }
-/* From Uiverse.io by Jarol20cb */ 
-.card {
-  width: 30rem;
-  height: 290px;
-  background-color: #81917c;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  right: 8em;
-  cursor: pointer;
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  background-color: rgb(0, 0, 0);
+  background-image: radial-gradient(rgba(253, 253, 253, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: center;
 }
 
-.code-container {
-  background-color: #222722;
-  border-radius: 8px;
-  padding: 16px;
-  height: 240px;
-}
-
-.line {
-  display: block;
-  color: #fff;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 4px 0;
-  position: relative;
-}
-
-.code-comment {
-  color: #5c6370;
-}
-
-.code-keyword {
-  color: #c678dd;
-}
-
-.code-function {
-  color: #61afef;
-}
-
-.code-variable {
-  color: #dcdcaa;
-}
-
-.code-string {
-  color: #98c379;
-  text-shadow: 2px 2px rgb(76, 81, 74);
-  font-weight: bold;
-  font-size: 20px;
-
-}
-
-.indent {
-  padding-left: 20px;
-}
-
-/* Animación */
-@keyframes float {
-  0% {
-    transform: translateY(0);
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+  .card, .cardp, .carda, .cardf-client {
+    width: 95% !important;
+    position: static !important;
+    margin: 1rem auto !important;
+    right: unset !important;
+    left: unset !important;
+    top: unset !important;
+    bottom: unset !important;
   }
 
-  50% {
-    transform: translateY(-10px);
+  .carda__svg {
+    display: none;
   }
 
-  100% {
-    transform: translateY(0);
+  .containera {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+
+  header nav {
+    width: 90% !important;
+    top: 80px !important;
+    flex-wrap: wrap;
+  }
+
+  header nav a {
+    font-size: 14px !important;
+    padding: 6px 10px !important;
+  }
+
+  header nav button {
+    width: 45px;
+    height: 45px;
+  }
+
+  section {
+    padding: 20px !important;
+    flex-direction: column !important;
+  }
+
+  .carousel__text {
+    font-size: 0.7rem;
+  }
+
+  .image {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  button {
+    font-size: 1.2rem !important;
+    padding: 0.5rem 1rem !important;
+    width: 80% !important;
+    margin: 1rem auto;
+    display: block;
+    position: static !important;
+  }
+
+  .social-media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .user-picture {
+    width: 4rem;
+    height: 4rem;
   }
 }
 
-.float-animation {
-  animation: float 2s ease-in-out infinite;
-}
+
+
+/* باقي التنسيقات تبقى كما هي... */
+
 
 
 /* From Uiverse.io by MuhammadHasann */ 
@@ -482,6 +311,195 @@ top: 0.6em;
   border-radius: 10px;
 }
 
+    header nav button span{
+        width: 50%;
+        background-color: #fff;
+        height: 3px;
+        display: block;
+        margin: 4px auto;
+        transform: scale(0);
+        transition: 0.6s transform cubic-bezier(0.080, 0.9, 0.18, 1) 0s, 0.3s margin ease-in 0s;
+    }
+    
+    header nav button:hover span{
+        margin: 9px auto;
+    }
+    
+    header.sticky #logo{
+        opacity: 0;
+    }
+    
+    header.sticky nav{
+        top: 20px;
+        padding: 0;
+        width: 80px;
+        height: 80px;
+    }
+    
+    header.sticky nav button{
+        transform: scale(1);
+        transition-delay: 0.3s;
+    }
+    
+    header.sticky nav button span{
+        transform: scaleX(1);
+        transition: 0.6s transform cubic-bezier(0.080, 0.9, 0.18, 1) 0.8s, 0.3s margin ease-in 0s;
+    }
+    
+    header.sticky nav a{
+        opacity: 0;
+        transform: scale(0.3);
+        transition-delay: 0.1s;
+    }
+    
+    @media screen and (max-width: 520px) {
+        
+        header nav{
+            height: 60px;
+            width: 390px;
+        }
+    
+        header nav button{
+            width: 50px;
+            height: 50px;
+        }
+    
+        header nav a{
+            font-size: 16px;
+        }
+    
+        section h1{
+            font-size: 80px;
+        }
+    
+        header.sticky nav{
+            width: 70px;
+            height: 70px;
+        }
+    
+    }
+/* From Uiverse.io by Jarol20cb */ 
+.card {
+  width: 30rem;
+  height: 290px;
+  background-color: #81917c;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  right: 8em;
+  cursor: pointer;
+}
+
+.code-container {
+  background-color: #222722;
+  border-radius: 8px;
+  padding: 16px;
+  height: 240px;
+}
+
+.line {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 4px 0;
+  position: relative;
+}
+
+.code-comment {
+  color: #5c6370;
+}
+
+.code-keyword {
+  color: #c678dd;
+}
+
+.code-function {
+  color: #61afef;
+}
+
+.code-variable {
+  color: #dcdcaa;
+}
+
+.code-string {
+  color: #98c379;
+  text-shadow: 2px 2px rgb(76, 81, 74);
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.indent {
+  padding-left: 20px;
+}
+
+/* Animación */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.float-animation {
+  animation: float 2s ease-in-out infinite;
+}
+
+
+    header nav a:hover{
+        color: #0d160d;
+    }
+    section::after{
+        content: "";
+        position: absolute;
+        
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+    }
+    
+    section h1{
+        font-size: 120px;
+        z-index: 2;
+    }
+    
+    header{
+        z-index: 9999;
+        position: relative;
+    }
+    
+    header #logo{
+        position: fixed;
+        top: 30px;
+        left: 0;
+        right: 0;
+        width: 90px;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 100%;
+        opacity: 1;
+        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
+    }
+    
+
+    #container{
+        transition: 1s all ease-in-out;
+    }
+    
+    #container.menuopen{
+        filter: blur(8px);
+        transform: scale(1.2);
+    }
 .carda {
   position: relative;
   background: #272b28;
@@ -525,12 +543,6 @@ top: 0.6em;
   margin-top: -1rem;
   opacity: 0;
   animation: ContentFadeIn .8s 1.6s forwards;
-}
-
-.carda__svg {
-  position: absolute;
-  left: 0;
-  top: 105px;
 }
 
 @keyframes LineFadeIn {
@@ -583,3 +595,4 @@ top: 0.6em;
     filter: blur(0);
   }
 }
+
