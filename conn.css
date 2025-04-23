@@ -398,7 +398,6 @@ top: 0.6em;
   color: #9ebb95;
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
-  position: relative;
 }
 
 .cardf-client:hover {
