@@ -1,98 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  overflow-x: hidden;
-  background-color: rgb(0, 0, 0);
-  background-image: radial-gradient(rgba(253, 253, 253, 0.171) 2px, transparent 0);
-  background-size: 30px 30px;
-  background-position: center;
-}
-
-/* التصميم المتجاوب */
-@media (max-width: 768px) {
-  .card, .cardp, .carda, .cardf-client {
-    width: 95% !important;
-    position: static !important;
-    margin: 1rem auto !important;
-    right: unset !important;
-    left: unset !important;
-    top: unset !important;
-    bottom: unset !important;
-  }
-
-  .carda__svg {
-    display: none;
-  }
-
-  .containera {
-    flex-direction: column;
-    justify-content: center;
-    height: auto;
-  }
-
-  header nav {
-    width: 90% !important;
-    top: 80px !important;
-    flex-wrap: wrap;
-  }
-
-  header nav a {
-    font-size: 14px !important;
-    padding: 6px 10px !important;
-  }
-
-  header nav button {
-    width: 45px;
-    height: 45px;
-  }
-
-  section {
-    padding: 20px !important;
-    flex-direction: column !important;
-  }
-
-  .carousel__text {
-    font-size: 0.7rem;
-  }
-
-  .image {
-    width: 70px !important;
-    height: 70px !important;
-  }
-
-  button {
-    font-size: 1.2rem !important;
-    padding: 0.5rem 1rem !important;
-    width: 80% !important;
-    margin: 1rem auto;
-    display: block;
-    position: static !important;
-  }
-
-  .social-media {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .user-picture {
-    width: 4rem;
-    height: 4rem;
-  }
-}
-
-
-
-/* باقي التنسيقات تبقى كما هي... */
-
-
-
+body{ 
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(0, 0, 0);
+    background-image: radial-gradient(rgba(253, 253, 253, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: relative;}
 
     #container{
         transition: 1s all ease-in-out;
@@ -271,7 +186,6 @@ body {
         }
     
     }
-/* From Uiverse.io by Jarol20cb */ 
 .card {
   width: 30rem;
   height: 290px;
@@ -279,7 +193,6 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
-  right: 8em;
   cursor: pointer;
 }
 
@@ -327,7 +240,6 @@ body {
   padding-left: 20px;
 }
 
-/* Animación */
 @keyframes float {
   0% {
     transform: translateY(0);
@@ -347,15 +259,12 @@ body {
 }
 
 
-/* From Uiverse.io by MuhammadHasann */ 
 .cardp {
   --lime-500: #505f4d;
   --violet-700: #132318;
 
   overflow: hidden;
   position: relative;
-  bottom: 5em;
-  right: 17em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -473,7 +382,6 @@ top: 0.6em;
   color:rgb(31, 34, 29);
 }
 
-  /* From Uiverse.io by JaydipPrajapati1910 */ 
 .cardf-client {
   background: #393f38;
   width: 29rem;
@@ -489,8 +397,6 @@ top: 0.6em;
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
   position: relative;
-  bottom: 90em;
-  left: 31em;
 }
 
 .cardf-client:hover {
@@ -556,7 +462,6 @@ top: 0.6em;
 .social-media a svg:hover{
   color: #212420;
 }
-/* From Uiverse.io by Shoh2008 */ 
 .containera {
   display: flex;
   align-items: center;
@@ -576,8 +481,6 @@ top: 0.6em;
   box-shadow: 0 .27rem .27rem rgba(31, 86, 31, 0.2),
     0 0 2rem rgba(111, 155, 84, 0.2);
   overflow: hidden;
-  right: 8.5em;
-  top: 2.6em;
   
 }
 
@@ -666,3 +569,87 @@ top: 0.6em;
     filter: blur(0);
   }
 }
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  background-color: rgb(0, 0, 0);
+  background-image: radial-gradient(rgba(253, 253, 253, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .card, .cardp, .cardf-client, .carda {
+    width: 90% !important;
+    position: static !important;
+    margin: 1rem auto !important;
+    right: unset !important;
+    left: unset !important;
+    top: unset !important;
+    bottom: unset !important;
+  }
+
+  .containera {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .carda__svg {
+    display: none;
+  }
+
+  header nav {
+    width: 90% !important;
+    top: 80px !important;
+    flex-wrap: wrap;
+  }
+
+  header nav a {
+    font-size: 14px !important;
+    padding: 6px 10px !important;
+  }
+
+  header nav button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .carousel__text {
+    font-size: 0.7rem;
+  }
+
+  .image {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .user-picture {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .social-media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .paragraph, .title, .title2 {
+    text-align: center;
+  }
+}
+
+
