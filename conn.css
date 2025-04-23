@@ -192,7 +192,7 @@ body{
   background-color: #81917c;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: center;
+  position: relative;
   cursor: pointer;
 }
 
@@ -264,7 +264,7 @@ body{
   --violet-700: #132318;
 
   overflow: hidden;
-  position: center;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -396,7 +396,7 @@ top: 0.6em;
   color: #9ebb95;
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
-      position:center;
+  position: relative;
 }
 
 .cardf-client:hover {
@@ -471,7 +471,7 @@ top: 0.6em;
 }
 
 .carda {
-  position: center;
+  position: relative;
   background: #272b28;
   width: 450px;
   height: 250px;
