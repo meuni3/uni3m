@@ -3,79 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat with ParistaBot</title>
+  <title>Botpress Chat</title>
   <style>
     body {
       background-color: #daa887;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      height: 100vh;
-      position: relative;
-      font-family: 'Inter', sans-serif;
     }
 
-    /* زر الشات العائم */
-    .chat-button {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      background-color: #312007;
-      color: #fff;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      z-index: 10000;
-      transition: 0.3s;
-    }
-
-    .chat-button:hover {
-      transform: scale(1.1);
-      background-color: #4a2f11;
-    }
-
-    /* مكان ظهور الشات */
     .chat-container {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: 400px;
-      height: 600px;
-      max-height: 90vh;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      overflow: hidden;
-      display: none;
-      z-index: 9999;
+      position: relative;
+      right: 100px;
+      max-width: 100%;
     }
 
     @media (max-width: 768px) {
       .chat-container {
-        width: 90%;
-        right: 5%;
-        bottom: 90px;
-        height: 80vh;
-      }
-
-      .chat-button {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
+        right: 0;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <div class="chat-container" id="chat-container">
+  <div class="chat-container">
+    <!-- سكربت البوت هنا -->
     <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
     <script>
       window.botpressWebChat.init({
@@ -87,25 +40,12 @@
         "stylesheet": "https://files.bpcontent.cloud/2025/01/25/18/20250125182325-VEIXYJ88.css",
         "themeName": "prism",
         "themeMode": "light",
+        "hideWidget": false,
+        "disableAnimations": false,
         "showPoweredBy": false,
-        "className": "botpress-webchat",
-        "hideWidget": true
+        "className": "botpress-webchat"
       });
     </script>
   </div>
-
-  <div class="chat-button" onclick="toggleChat()">💬</div>
-
-  <script>
-    function toggleChat() {
-      const chat = document.getElementById('chat-container');
-      if (chat.style.display === 'none' || chat.style.display === '') {
-        chat.style.display = 'block';
-      } else {
-        chat.style.display = 'none';
-      }
-    }
-  </script>
-
 </body>
 </html>
