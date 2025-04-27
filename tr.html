@@ -85,4 +85,27 @@
         "messagingUrl": "https://messaging.botpress.cloud",
         "botName": "ParistaBot",
         "stylesheet": "https://files.bpcontent.cloud/2025/01/25/18/20250125182325-VEIXYJ88.css",
-        "themeName
+        "themeName": "prism",
+        "themeMode": "light",
+        "showPoweredBy": false,
+        "className": "botpress-webchat",
+        "hideWidget": true
+      });
+    </script>
+  </div>
+
+  <div class="chat-button" onclick="toggleChat()">💬</div>
+
+  <script>
+    function toggleChat() {
+      const chat = document.getElementById('chat-container');
+      if (chat.style.display === 'none' || chat.style.display === '') {
+        chat.style.display = 'block';
+      } else {
+        chat.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
