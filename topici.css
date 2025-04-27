@@ -306,15 +306,3 @@ body article {
     width: 320%;
   }
 }                                         
-            
-@media (max-width: 768px) {
-  .swiper .swiper-slide figcaption p {
-    display: block;
-    overflow: visible;
-    -webkit-line-clamp: unset;
-    -webkit-box-orient: unset;
-    white-space: normal;
-    font-size: 14px; 
-  }
-}
-
