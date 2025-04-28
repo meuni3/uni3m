@@ -192,36 +192,6 @@ body article {
   }
 }
 
-@media (max-width: 375px) {
-  .swiper .swiper-slide h2 {
-    font-size: 120%; 
-    background-color: transparent; 
-    border-radius: 0; 
-    text-align: center;
-    width: 100%; 
-  }
-}
-
-@media (max-width: 390px) {
-  .swiper .swiper-slide h2 {
-    font-size: 120%; 
-    background-color: transparent; 
-    border-radius: 0; 
-    text-align: center;
-    width: 100%; 
-  }
-}
-
-@media (max-width: 412px) {
-  .swiper .swiper-slide h2 {
-    font-size: 120%; 
-    background-color: transparent; 
-    border-radius: 0; 
-    text-align: center;
-    width: 100%; 
-  }
-}
-
 
 
 .swiper .swiper-slide h4 {
