@@ -12,16 +12,17 @@ body {
 
 
 .descrizione {
-  width: 70%;
-  margin: 40px auto; /* يوسّط البوكس */
-  border: solid white 2px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+  color: white;
   font-size: 20px;
   text-align: center;
-  color: white;
-  padding: 20px;
   box-sizing: border-box;
 }
+
 
   
   .testobianco {
