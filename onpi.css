@@ -10,7 +10,7 @@ body {
     text-align: center;
   }
   
-  .descrizione {.descrizione {
+.descrizione {
   display: flex;
   justify-content: center;
   width: 70%;
@@ -20,7 +20,7 @@ body {
   font-size: 20px;
 }
 
-  }
+  
   
   .testobianco {
     text-shadow: rgb(113, 0, 0) 2px 2px;
