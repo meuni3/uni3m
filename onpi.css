@@ -10,10 +10,9 @@ body {
     text-align: center;
   }
 
-
 .descrizione {
-  max-width: 800px;
-  margin: 40px auto;
+  width: 70%;
+  margin: 50px auto;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
   border: 2px solid white;
