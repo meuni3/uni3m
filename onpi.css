@@ -17,8 +17,7 @@ body {
     border: solid white 2px;
     background-color: rgba(0, 0, 0, 0.5);
     font-size: 20px;
-    position: relative;
-    left: 35%;
+       margin: 0 auto;
   }
   
   .testobianco {
