@@ -9,18 +9,20 @@ body {
   body * {
     text-align: center;
   }
-  .descrizione {
+
+
+.descrizione {
   width: 70%;
-  margin: 40px auto; /* هذا يخلي البوكس في وسط الصفحة أفقياً */
+  margin: 40px auto; /* يوسّط البوكس */
   border: solid white 2px;
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
   text-align: center;
-  padding: 20px;
   color: white;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-  
   
   .testobianco {
     text-shadow: rgb(113, 0, 0) 2px 2px;
