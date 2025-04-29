@@ -1,164 +1,365 @@
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
+body {
+    background-image: url(o7.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: fantasy;
   }
-}
-
-body{ 
+  
+  body * {
+    text-align: center;
+  }
+  
+  .descrizione {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    border: solid white 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    position: relative;
+    left: 15%;
+  }
+  
+  .testobianco {
+    text-shadow: rgb(113, 0, 0) 2px 2px;
+    color: rgb(255, 255, 255);
+  }
+  
+  
+  .testorosso {
+    color: rgb(71, 1, 1);
+    font-family: serif;
+    font-weight: bold;
+    text-shadow: rgb(255, 0, 0)2.4px 2.4px 2.4px;
+  }
+  
+  .immagine img {
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .nav-link {
+    color: white;
+    font-size: 20px;
+    font-family: serif;
+    font-weight: bold;
+  }
+  
+  .navbar {
+    background-color: rgba(116, 115, 134, 0.5);
+    padding: 0;
+    border-bottom: 5px solid white;
+  }
+  
+  .nav-link:not(:last-child) {
+    color: green;
+  }
+  
+  #menu {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    height: 30px;
     width: 100%;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden;
-    /* Add your background pattern here */
-    background-color: rgb(0, 0, 0);
-    background-image: radial-gradient(rgba(253, 253, 253, 0.171) 2px, transparent 0);
-    background-size: 30px 30px;
-    background-position: relative;}
-    body {
-        background-image: url(https://images7.alphacoders.com/332/thumb-1920-332740.jpg);
-        background-attachment: fixed;
-        background-size: cover;
-        background-repeat: no-repeat;
-        font-family: fantasy;
-      }
-      
-      body * {
-        text-align: center;
-      }
-      
-      .descrizione {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        border: solid white 2px;
-        background-color: rgba(0, 0, 0, 0.5);
-        font-size: 20px;
-      }
-      
-      .testobianco {
-        color: white;
-      }
-      
-      .testorosso {
-        color: red;
-        font-family: serif;
-        font-weight: bold;
-      }
-      
-      .immagine img {
-        width: 300px;
-        height: 300px;
-        margin-top: 40px;
-        margin-bottom: 40px;
-      }
-      
-      .nav-link {
-        color: white;
-        font-size: 20px;
-        font-family: serif;
-        font-weight: bold;
-      }
-      
-      .navbar {
-        background-color: rgba(255, 0, 0, 0.5);
-        padding: 0;
-        border-bottom: 5px solid white;
-      }
-      
-      .nav-link:not(:last-child) {
-        color: green;
-      }
-      
-      #menu {
-        display: flex;
-        justify-content: space-around;
-        align-content: center;
-        height: 30px;
-        width: 100%;
-      }
-      
-      .banner img{
-        display: block;
-        justify-content: center;
-        width: 100%;
-        margin-top: 80px;
-        margin-bottom: 50px;
-      }
-      
-      div a:hover {
-        background-color: #AC0000;
-        color: #FFFFFF;
-        text-decoration: none;
-      }
-      
-      #luffy {
-        transition: transform.8s ease-in-out;
-        background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/0d516c20-05f4-4e15-8aff-cf6aded257d3/dca21gp-4bbf4271-c21d-424f-9080-1a7e2ccf2649.jpg");
-      
-      }
-      
-      #luffy:hover {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-      
-      #zoro:not(:hover){
-        background-image: url("https://i.pinimg.com/originals/b7/e8/50/b7e850df7ee4c2962d86275f7450af76.jpg");
-      
-      }
-      #zoro:hover{
-        animation: zoro 2s infinite alternate;
-      
-      }
-      
-      #nami {
+  }
+  
+  .banner img{
+    display: block;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+    position:relative;
+    left: 25%;
+  }
+  
+  div a:hover {
+    background-color:  rgba(192, 192, 195, 0.555);
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+  
+  #ace:not(:hover) {
+    transition: transform.8s ease-in-out;
+    background-image: url("https://i.pinimg.com/736x/46/8f/95/468f953ef42f6a577b9aed179f7b0593.jpg");
+  
+  }
+  
+  #ace:hover {
+    animation: ace 2s infinite alternate;}
+  
+  #luffy:not(:hover) {
+    transition: transform.8s ease-in-out;
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/0d516c20-05f4-4e15-8aff-cf6aded257d3/dca21gp-4bbf4271-c21d-424f-9080-1a7e2ccf2649.jpg");
+  
+  }
+  
+  #luffy:hover {
+    animation: luffy 2s infinite alternate;}
+  
+  #zoro:not(:hover){
+    background-image: url("https://i.pinimg.com/originals/b7/e8/50/b7e850df7ee4c2962d86275f7450af76.jpg");
+  
+  }
+  #zoro:hover{
+    animation: zoro 2s infinite alternate;
+  
+  }
+  
+  #nami:not(:hover) {
+    background-image: url("https://i.imgur.com/iWldHzJ.png");
+  
+  }
+  
+  #nami:hover{
+    animation: nami 2s infinite alternate;
+  
+  }
+  #usopp:not(:hover) {
+    background-image: url("http://ilnuovomondoshop.it/790/one-piece-wanted-god-usopp.jpg");
+  }
+  
+  
+  #usopp:hover{
+    animation: usopp 2s infinite alternate;
+  
+  }
+  #sanji:not(:hover) {
+    background-image: url("https://i.pinimg.com/originals/94/57/d1/9457d14b171d7bc24b68fdaa5e5c0269.jpg");
+  }
+  
+  #sanji:hover{
+    animation: sanji 2s infinite alternate;
+  
+  }
+  
+  #chopper:not(:hover) {
+    background-image: url("https://i.pinimg.com/564x/5d/b7/4f/5db74fd043ccdd4dcac8384f6ff1088c.jpg");
+  }
+
+  
+  #chopper:hover{
+    animation: chopper 2s infinite alternate;
+  
+  }
+  
+  
+  #robin:not(:hover){
+    background-image: url("https://i.pinimg.com/564x/d7/ce/fd/d7cefdf393deb9402e4a132a7138cc07.jpg");
+  }
+  
+  #robin:hover{
+    animation: robin 2s infinite alternate;
+  
+  }
+  
+  
+  #franky:not(:hover){
+    background-image: url("https://i.pinimg.com/564x/9e/e4/a3/9ee4a3a517eb648b5181a6ce0006c165.jpg");
+  }
+  
+  #franky:hover{
+    animation: franky 2s infinite alternate;
+  
+  }
+  
+  #brook:not(:hover){ background-image: url("https://i.pinimg.com/564x/78/9a/23/789a2326bab25dfd6e381320d13c27dc.jpg")
+  }
+  
+  #brook:hover{
+    animation: brook 2s infinite alternate;
+  
+  }
+  
+  #jimbe:not(:hover){
+    background-image: url("https://i.pinimg.com/564x/7c/f9/b1/7cf9b193f4ab410efad4c20b3558c15f.jpg");
+  }
+
+  
+  #jimbe:hover{
+    animation: jimbe 2s infinite alternate;
+  
+  }
+  
+  @keyframes zoro {
+    0% {
+      background-image: url("https://i.pinimg.com/originals/b7/e8/50/b7e850df7ee4c2962d86275f7450af76.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://media0.giphy.com/media/DQ4PoTOkJIStO/giphy.gif?cid=3640f6095c4afe687748744c4965f4bc");
+  
+    }
+  }
+  
+  @keyframes luffy {
+    0% {
+      background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/0d516c20-05f4-4e15-8aff-cf6aded257d3/dca21gp-4bbf4271-c21d-424f-9080-1a7e2ccf2649.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTF3cnphZ3g0MjNyN3ZsaWM2MWxkd3hza3ZzNDBjM3Z5M2g1bWwzMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KGd6ns7MR1gPCRT52z/giphy.gif");
+  
+    }
+  }
+
+  
+  @keyframes nami {
+    0% {
         background-image: url("https://i.imgur.com/iWldHzJ.png");
       
-      }
-      
-      #usopp {
-        background-image: url("http://ilnuovomondoshop.it/790/one-piece-wanted-god-usopp.jpg");
-      }
-      
-      #sanji {
-        background-image: url("https://i.pinimg.com/originals/94/57/d1/9457d14b171d7bc24b68fdaa5e5c0269.jpg");
-      }
-      
-      #chopper {
-        background-image: url("https://i.pinimg.com/564x/5d/b7/4f/5db74fd043ccdd4dcac8384f6ff1088c.jpg");
-      }
-      
-      #robin{
-        background-image: url("https://i.pinimg.com/564x/d7/ce/fd/d7cefdf393deb9402e4a132a7138cc07.jpg");
-      }
-      
-      #franky{
-        background-image: url("https://i.pinimg.com/564x/9e/e4/a3/9ee4a3a517eb648b5181a6ce0006c165.jpg");
-      }
-      
-      #brook{ background-image: url("https://i.pinimg.com/564x/78/9a/23/789a2326bab25dfd6e381320d13c27dc.jpg")
-      }
-      
-      #jimbe{
-        background-image: url("https://i.pinimg.com/564x/7c/f9/b1/7cf9b193f4ab410efad4c20b3558c15f.jpg");
-      }
-      @keyframes zoro {
-        0% {
-          background-image: url("https://i.pinimg.com/originals/b7/e8/50/b7e850df7ee4c2962d86275f7450af76.jpg");
-      
-        }
-      
-      
-        100% {
-          background-image: url("https://media0.giphy.com/media/DQ4PoTOkJIStO/giphy.gif?cid=3640f6095c4afe687748744c4965f4bc");
-      
-        }
-      }
-      .immagine{
-        height: 300px;
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-      
-      }
-      
+    }
+  
+  
+    100% {
+      background-image: url("https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGk0enB1a2ZrcjllaWJ5c2pqd2M2MzU1cHdmdGpjZzluankxajdpNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3QwAvg4bBkr2ElijuF/giphy.gif");
+  
+    }
+  }
+
+
+  @keyframes usopp {
+    0% {
+      background-image: url("http://ilnuovomondoshop.it/790/one-piece-wanted-god-usopp.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.pinimg.com/originals/bd/21/52/bd2152fecf88f1490d1060db3d658fdf.gif");
+  
+    }
+  }
+
+
+  @keyframes sanji {
+    0% {
+      background-image: url("https://i.pinimg.com/originals/94/57/d1/9457d14b171d7bc24b68fdaa5e5c0269.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWFtZ200N3ozMDFmb2t4aGdoYml4b2xjZWhnd2g3eWRmZGY1NmFkeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9aiveGIvkwfyE/giphy.gif");
+  
+    }
+  }
+  
+
+  @keyframes chopper {
+    0% {
+      background-image: url("https://i.pinimg.com/564x/5d/b7/4f/5db74fd043ccdd4dcac8384f6ff1088c.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.pinimg.com/originals/55/48/75/554875ea5a1b72241e4e6082a744b211.gif");
+  
+    }
+  }
+
+  
+  @keyframes robin {
+    0% {
+      background-image: url("https://i.pinimg.com/564x/d7/ce/fd/d7cefdf393deb9402e4a132a7138cc07.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.pinimg.com/originals/45/8b/9c/458b9cbba6748e67ac34ddd5db18dc12.gif");
+  
+    }
+  }
+
+
+  
+  @keyframes franky {
+    0% {
+      background-image: url("https://i.pinimg.com/564x/9e/e4/a3/9ee4a3a517eb648b5181a6ce0006c165.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.pinimg.com/originals/47/22/15/47221512d8cf99bb80581691b9e5bc5a.gif");
+  
+    }
+  }
+
+
+  
+  @keyframes brook {
+    0% {
+      background-image: url("https://i.pinimg.com/564x/78/9a/23/789a2326bab25dfd6e381320d13c27dc.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.pinimg.com/originals/38/81/25/388125db17310a9fd58e3b0b5ab0d5aa.gif");
+  
+    }
+  }
+
+
+
+  
+  @keyframes jimbe {
+    0% {
+      background-image: url("https://i.pinimg.com/564x/7c/f9/b1/7cf9b193f4ab410efad4c20b3558c15f.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.pinimg.com/originals/b6/8b/a3/b68ba34f769d280bc6a021046c3e1ccb.gif");
+  
+    }
+  }
+
+  
+  
+  @keyframes ace {
+    0% {
+      background-image: url("https://i.pinimg.com/736x/46/8f/95/468f953ef42f6a577b9aed179f7b0593.jpg");
+  
+    }
+  
+  
+    100% {
+      background-image: url("https://i.pinimg.com/originals/e6/cc/94/e6cc94ab96cc7222a73e5db0423f29ef.gif");
+  
+    }
+  }
+
+
+  .immagine{
+    height: 300px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+  }
+  
+  .button{
+    background-color: rgb(144, 137, 137);
+    border-radius: 48px;
+    color: rgb(1, 1, 4);
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .button:hover{
+    background-color: #c59696;
+  }
+
+
+
