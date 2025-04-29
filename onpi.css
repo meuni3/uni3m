@@ -9,15 +9,15 @@ body {
   body * {
     text-align: center;
   }
-  
-.descrizione {
-  display: flex;
-  justify-content: center;
+  .descrizione {
   width: 70%;
-  margin: 0 auto;
+  margin: 40px auto; /* هذا يخلي البوكس في وسط الصفحة أفقياً */
   border: solid white 2px;
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 20px;
+  text-align: center;
+  padding: 20px;
+  color: white;
 }
 
   
