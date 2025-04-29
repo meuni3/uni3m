@@ -68,15 +68,16 @@ body {
     height: 30px;
     width: 100%;
   }
-  
-  .banner img{
-    display: block;
-    justify-content: center;
-    width: 50%;
-    align-items: center;
-    position:relative;
-    left: 25%;
-  }
+  .banner {
+  text-align: center;
+  margin-top: 80px; 
+}
+
+.banner img {
+  width: 50%;
+  height: auto;
+}
+
   
   div a:hover {
     background-color:  rgba(192, 192, 195, 0.555);
