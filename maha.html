@@ -8,36 +8,35 @@
       font-family: Arial;
       color: rgb(0, 0, 0);
     }
-    
     .split {
-      height: 100%;
-      width: 50%;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      overflow-x: hidden;
-      padding-top: 20px;
-    }
-    
-    .left {
-      left: 0;
-  /* Add your background pattern here */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 900;
+}
+
+.left {
+  width: 20%;
   background-color: #e3c8a0b1;
   background-image: radial-gradient(rgba(47, 32, 0, 0.171) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px;
-      height: 100%;
-      width: 20%;
-    }
-    
-    
-    .centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 220px; 
+  padding: 1em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
     
     .centered img {
       width: 150px;
@@ -66,7 +65,6 @@
     <body class="body">
     
     <div class="split left">
-      <div class="centered">
     <label>
         <input class="slider" type="checkbox">
         <div class="switch">
@@ -115,8 +113,10 @@
             </div>
         </div>
     </label>
-<div class="container2"></div>
+    
 <h1 class="h1">UNI✤M </h1>
+    <div class="centered">
+<div class="container2"></div>
 <span class="a">
     
 <a href="connect.html" p class="p p0" >PERSONAL</p></a></br></br>
@@ -144,8 +144,30 @@
     
       </div>
     </div>
-    
-    /* From Uiverse.io by akshat-patel28 */ 
+     
+<div class="spinner">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+    </section> 
+  </article><div class="content-wrapper">
+    <div class="terminal-loader">
+      <div class="terminal-header">
+        <div class="terminal-title">Status</div>
+        <div class="terminal-controls">
+          <div class="control close"></div>
+          <div class="control minimize"></div>
+          <div class="control maximize"></div>
+        </div>
+      </div>
+      <div class="text">WELCOME...</div>
+    </div>
+  
+    <div class="card-wrapper">
     <div class="card">
         <p class="card-title">HELLO WORLD!</p>
         <p class="card-des"> Welcome to UNI✤M's personal website! . I’m MAHA a beginner web 
@@ -160,33 +182,11 @@
             <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
           </svg>
         </p>
-      </div>
-      /* From Uiverse.io by bociKond */ 
-<div class="spinner">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-    </section> 
-  </article>
-  /* From Uiverse.io by jeremyssocial */ 
-<div class="terminal-loader">
-  <div class="terminal-header">
-    <div class="terminal-title">Status</div>
-    <div class="terminal-controls">
-      <div class="control close"></div>
-      <div class="control minimize"></div>
-      <div class="control maximize"></div>
-    </div>
-  </div>
-  <div class="text">WELCOME...</div>
-</div>
+      </div></div>
+
 
 <script>
-  // Floating hearts animation
+ 
   function createEnhancedHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
@@ -203,8 +203,7 @@
   }
   
   setInterval(createEnhancedHeart, 300);
-  
-  // Enhanced sparkle effect
+
   function createEnhancedSparkle(e) {
     const sparkle = document.createElement('div');
     sparkle.className = 'sparkle';
@@ -219,7 +218,7 @@
   }
   
   document.addEventListener('mousemove', (e) => {
-    if(Math.random() > 0.8) { // Only create sparkles 20% of the time
+    if(Math.random() > 0.8) { 
         createEnhancedSparkle(e);
     }
   });
