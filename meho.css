@@ -142,29 +142,17 @@ font-size: 17PX;
 }
 
 
-
-/* From Uiverse.io by akshat-patel28 */ 
 .card {
-  position: relative;
-  width: 90%;
-  max-width: 550px;
-  height: 280px;
-  box-sizing: border-box;
-  background-color: #212121;
-  border: 5px solid #222;
-  border-radius: 8px;
+  max-width: 400px;      /* يحدد عرض مناسب للكارد */
+  margin: 40px auto;     /* يخليه بالنص أفقياً */
+  padding: 20px;         /* مسافة داخلية */
+  text-align: center;    /* محتوى الكارد يكون بالنص */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
-          rgba(0, 0, 0, 0.23) 0px 6px 6px,
-          inset rgba(0, 0, 0, 0.19) 0px 10px 20px,
-          inset rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  transition: all ease-in-out 0.3s;
-  overflow: hidden;
+  align-items: center;
 }
+
 .card-wrapper {
   display: flex;
   justify-content: center; 
@@ -997,6 +985,7 @@ font-size: 17PX;
     blinkCursor 0.5s step-end infinite alternate;
   margin-top: 1.5em;
 }
+
 
 
 
