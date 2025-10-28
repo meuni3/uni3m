@@ -23,58 +23,68 @@
   background-size: 30px 30px;
   background-position: -5px -5px;
     }
-
-    /* Sidebar */.sidebar {
+.sidebar {
   background-color: #e3c8a0b8;
   width: 330px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* توسيط المحتوى عموديًا */
+  justify-content: center; /* توسيط عامودي */
   align-items: center;     /* توسيط أفقي */
   padding: 20px;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .menu {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* عامودي في الشاشات الكبيرة */
   align-items: center;
-  gap: 25px;
-  width: 100%;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap; /* يلتف تلقائيًا لو المساحة ما تكفي */
+  max-height: 90vh;
 }
 
 .menu a {
   text-decoration: none;
   color: #3d2f20;
   font-weight: bold;
+  font-size: 18px;
   padding: 10px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
 .menu a:hover {
   background-color: rgba(61, 47, 32, 0.15);
 }
 
-/* للجوال */
+/* للشاشات الصغيرة */
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
+    height: auto;
     flex-direction: column;
-    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
   }
 
   .menu {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: row; /* تتحول لأفقية */
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 15px;
   }
 
   .menu a {
-    font-size: 14px;
+    font-size: 16px;
     padding: 8px 12px;
   }
 }
+
 
     h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -82,19 +92,6 @@
     font-size: 50px;
     text-align: center;
     z-index: 1000;    
-    }
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 100px;
-      width: 100%;
-      text-align: center;
-    }
-    .menu a {
-      text-decoration: none;
-      color: #3d2f20;
-      font-weight: bold;
-      padding: 10px;
     }
     .contact {
       margin-top: auto;
@@ -1314,19 +1311,26 @@
         </div>
       </div>
     </label>
+  </br>
+  </br>
       <h1>UNI♣M</h1>
       <br/>
       <br/>
+      
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     <nav class="menu">
-      <a href="#">PERSONAL</a>
-      <a href="#">TOPIC</a>
-      <a href="#">INFO</a>
-      <a href="#">CV</a>
+      <a href="connect.html">PERSONAL</a>
+      <a href="topic.html">TOPIC</a>
+      <a href="info2.html">INFO</a>
+      <a href="cv ma.pdf">CV</a>
     </nav>
     <div class="contact">
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="Instagram"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
+      <a href="https://www.instagram.com/unix3m/"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="Instagram"></a>
+      <a href="mailto:mahalghamdii00@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email"></a>
+      <a href="https://www.linkedin.com/in/maha-alghamdi-2321a3301/"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></a>
     </div>
   </div>
 
