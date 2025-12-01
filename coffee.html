@@ -666,31 +666,34 @@ section.bl-expand .bl-icon-close {
 .options > div:nth-child(35) { animation-delay: calc(var(--_speed) * -35s); }
 
 .wrapper {
-    left: 35rem;
-    top: 6rem;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
     width: 300px;
     height: 300px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     border-radius: 50%;
     background-color: #9b8c83;
     background: 
-    repeating-linear-gradient( 45deg, #9c7154, #ffdfca 8px, #fff0 8px, #fff0 25px ), 
-    repeating-linear-gradient( -45deg, #7a5943, #ffcaa6 8px, #fff0 8px, #fff0 25px );
-    background-color: #533723;
+    repeating-linear-gradient(45deg, #9c7154, #ffdfca 8px, #fff0 8px, #fff0 25px),
+    repeating-linear-gradient(-45deg, #7a5943, #ffcaa6 8px, #fff0 8px, #fff0 25px);
+
     box-shadow: 
-    0 0 1px 1px #7a665a,
-    0 0 4px 2px #9b8c83,
-    inset 0 -630px 20px -500px #c59473,
-    inset 0 -680px 40px -500px #9c7154, 
-    inset 0 -700px 0 -500px #775843;
-    
-    -webkit-user-select: none;
-    -ms-user-select: none; 
+        0 0 1px 1px #7a665a,
+        0 0 4px 2px #9b8c83,
+        inset 0 -630px 20px -500px #c59473,
+        inset 0 -680px 40px -500px #9c7154,
+        inset 0 -700px 0 -500px #775843;
+
     user-select: none;
 }
+
 .shadow {
     position: absolute;
     top: 69.7%;
@@ -1555,3 +1558,4 @@ options.forEach((option) => {
 </script>
 	</body>
 </html>
+
