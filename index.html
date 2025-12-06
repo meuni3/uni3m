@@ -27,8 +27,8 @@
   width: 330px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* توسيط عامودي */
-  align-items: center;     /* توسيط أفقي */
+  justify-content: center; 
+  align-items: center;   
   padding: 20px;
   height: 100vh;
   box-sizing: border-box;
@@ -36,11 +36,11 @@
 
 .menu {
   display: flex;
-  flex-direction: column; /* عامودي في الشاشات الكبيرة */
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   gap: 100px;
-  flex-wrap: wrap; /* يلتف تلقائيًا لو المساحة ما تكفي */
+  flex-wrap: wrap; 
   max-height: 90vh;
 }
 
@@ -59,7 +59,6 @@
   background-color: rgba(61, 47, 32, 0.15);
 }
 
-/* للشاشات الصغيرة */
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
@@ -71,7 +70,7 @@
   }
 
   .menu {
-    flex-direction: row; /* تتحول لأفقية */
+    flex-direction: row; 
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -102,7 +101,6 @@
       height: 24px;
     }
 
-    /* Main content */
     .main {
       flex: 1;
       padding: 40px;
@@ -116,7 +114,7 @@
       border-radius: 5px;
       width: fit-content;
       font-family: monospace;
-    }/* From Uiverse.io by akshat-patel28 */
+    }
      .card {
   width: 90%;
   max-width: 550px;
@@ -221,7 +219,6 @@
   text-decoration:none;
 }
 
-    /* Responsive */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -236,16 +233,9 @@
         padding: 20px;
       }
     }
-    /* From Uiverse.io by Galahhad */ 
-/* REMASTERED */
-/* RTX-ON */
-/* completely redone toggle and droid */
-
+    
 .bb8-toggle {
   --toggle-size: 16px;
-  /* finally I removed the scale now everything depends on the font-size */
-  /* --margin-top-for-head: 1.75em; */
-  /* it's just in case 👆 */
   --toggle-width: 10.625em;
   --toggle-height: 5.625em;
   --toggle-offset: calc((var(--toggle-height) - var(--bb8-diameter)) / 2);
@@ -1195,7 +1185,7 @@
   45%,
   55% {
     width: 6.2em;
-  } /* adjust width based on content */
+  } 
   90%,
   100% {
     width: 0;
@@ -1334,7 +1324,6 @@
   </div>
 
   <div class="main">
-    <!-- From Uiverse.io by jeremyssocial --> 
 <div class="terminal-loader">
   <div class="terminal-header">
     <div class="terminal-title">Status</div>
@@ -1360,6 +1349,7 @@
   </div>
 </body>
 </html>
+
 
 
 
